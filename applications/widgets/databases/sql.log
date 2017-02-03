@@ -1,0 +1,1689 @@
+timestamp: 2009-12-17T10:20:43.906000
+CREATE TABLE auth_user(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    first_name CHAR(128),
+    last_name CHAR(128),
+    email CHAR(512),
+    password CHAR(512),
+    registration_key CHAR(512)
+);
+success!
+timestamp: 2009-12-17T10:20:43.914000
+CREATE TABLE auth_group(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    role CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2009-12-17T10:20:43.920000
+CREATE TABLE auth_membership(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id REFERENCES auth_user(id) ON DELETE CASCADE,
+    group_id REFERENCES auth_group(id) ON DELETE CASCADE
+);
+success!
+timestamp: 2009-12-17T10:20:43.926000
+CREATE TABLE auth_permission(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    group_id REFERENCES auth_group(id) ON DELETE CASCADE,
+    name CHAR(512),
+    table_name CHAR(512),
+    record_id INTEGER
+);
+success!
+timestamp: 2009-12-17T10:20:43.933000
+CREATE TABLE auth_event(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    time_stamp TIMESTAMP,
+    client_ip CHAR(512),
+    user_id REFERENCES auth_user(id) ON DELETE CASCADE,
+    origin CHAR(512),
+    description TEXT
+);
+success!
+timestamp: 2010-02-04T12:40:16.461000
+ALTER TABLE auth_user ADD reset_password_key CHAR(512);
+timestamp: 2010-06-07T14:18:59.963000
+CREATE TABLE things(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name CHAR(512),
+    created_on CHAR(512)
+);
+success!
+timestamp: 2010-06-07T16:10:34.366000
+ALTER TABLE things ADD value CHAR(512);
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+timestamp: 2010-06-07T16:19:11.221000
+CREATE TABLE state(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name CHAR(512)
+);
+success!
+timestamp: 2010-06-07T16:19:11.230000
+CREATE TABLE city(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name CHAR(512),
+    state REFERENCES state(id) ON DELETE CASCADE
+);
+success!
+timestamp: 2010-06-07T16:19:11.305000
+CREATE TABLE zipcode(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    value CHAR(512),
+    city REFERENCES city(id) ON DELETE CASCADE
+);
+success!
+timestamp: 2010-06-07T16:19:11.315000
+ALTER TABLE things ADD city REFERENCES city(id) ON DELETE CASCADE;
+timestamp: 2010-06-07T16:19:11.319000
+ALTER TABLE things ADD location CHAR(512);
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+timestamp: 2010-06-07T16:50:18.355000
+ALTER TABLE things ADD stuff CHAR(512);
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+timestamp: 2010-06-07T17:06:37.852000
+ALTER TABLE things ADD rating CHAR(512);
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+timestamp: 2016-11-08T00:22:20.778967
+ALTER TABLE auth_user ADD registration_id CHAR(512);
+success!
+success!
+success!
+success!
+success!
+timestamp: 2016-11-08T00:22:20.894176
+CREATE TABLE auth_cas(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_id INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
+    created_on TIMESTAMP,
+    service CHAR(512),
+    ticket CHAR(512),
+    renew CHAR(1)
+);
+success!
+success!
+success!
+success!
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!
+success!
+DELETE FROM state;
+DELETE FROM sqlite_sequence WHERE name='state';
+success!
+DELETE FROM city;
+DELETE FROM sqlite_sequence WHERE name='city';
+success!
+DELETE FROM zipcode;
+DELETE FROM sqlite_sequence WHERE name='zipcode';
+success!
+DELETE FROM things;
+DELETE FROM sqlite_sequence WHERE name='things';
+success!

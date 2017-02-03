@@ -1,0 +1,35 @@
+{{extend 'layout.html'}}
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      {{=grid}}
+      <h1>Jogos</h1>
+      <div class="row">
+        <div>
+          {{for i,jogo in enumerate(lista_jogos):}}
+          <ul  class="col-xs-4 col-md-4 col-lg-4 list-group">
+            <li class="list-group-item">{{=lista_jogos[i][0]}}&nbsp;<input type="text" name="{{='jogo%s'%i}}" style="width:25px;">&nbsp;X
+            <input type="text" name="jogo" style="width:25px;">&nbsp;{{=lista_jogos[i][1]}}&nbsp;<button class="btn btn-primary btn-sm">Alterar</button></li>
+          </ul>
+          {{pass}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="row">
+        <div>
+          {{for i,jogo in enumerate(lista_jogos):}}
+          <ul  class="col-xs-4 col-md-4 col-lg-4 list-group">
+            <li class="list-group-item">
+              <label for="{{='jogo%s'%i}}">{{=lista_jogos[i][0]}}&nbsp;</label>
+              <input id="{{='jogo%s'%i}}" type="text" name="{{='jogo%s'%i}}" style="width:25px;">&nbsp;X
+            <input type="text" name="jogo" style="width:25px;">&nbsp;
+            <label for="{{='jogo%s'%i}}">{{=lista_jogos[i][1]}}&nbsp;</label>&nbsp;<button id="{{='bt%s'%i}}" class="btn btn-primary btn-sm">Alterar</button></li>
+          </ul>
+          {{pass}}
+        </div>
+      </div>
+
+</div>

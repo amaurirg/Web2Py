@@ -1,0 +1,59 @@
+{{extend 'layout_principal.html'}}
+
+<div id="nav2">
+<h3>Lista de Chamadas Diárias</h3><br />
+
+{{=lbl}}<br />
+
+{{=form.custom.begin}}
+{{=form.custom.widget.name}}<br />
+{{form.elements('#no_table_Data_Ini')[0]['class']='input-large'}}
+{{form.elements('#no_table_Data_Ini')[0]['_placeholder']=' DATA INICIAL'}}
+{{=form.custom.widget.Data_Ini}}<br />
+{{form.elements('#no_table_Data_Fim')[0]['class']='input-large'}}
+{{form.elements('#no_table_Data_Fim')[0]['_placeholder']=' DATA FINAL'}}
+{{=form.custom.widget.Data_Fim}}<br />
+{{=form.custom.submit}}
+{{=form.custom.end}}
+
+<br /><br />
+<b>{{=ramal_sel}}</b><br />
+<b>{{=data_inicial}}{{=data_final}}</b><br /><br />
+<table>
+<tr>
+  <td><pre><b>DATA/HORA</b></pre></td>
+	<td><pre><b>NOME</b></pre></td>
+	<td><pre><b>TELEFONE</b></pre></td>
+	<td><pre><b>EMPRESA</b></pre></td>
+	<td><pre><b>PRODUTO</b></pre></td>
+	<td><pre><b>RAMAL SOLICITADO</b></pre></td>
+	<td><pre><b>STATUS</b></pre></td>
+	<td><pre><b>OBSERVAÇÕES</b></pre></td>
+	<td><pre><b>MENSAGEM</b></pre></td>
+	<td><pre><b>ATENDENTE</b></pre></td>
+</tr>
+{{cont=0}}
+{{for i in diarias:}}
+
+  <tr>
+    <td><pre>{{=i.created_on}}</pre></td>
+    <td><pre>{{=i.nome}}</pre></td>
+    <td><pre>{{=i.tel}}</pre></td>
+    <td><pre>{{=i.emp}}</pre></td>	
+    <td><pre>{{=i.prod}}</pre></td>
+    <!-- <td><pre>{{ramal = db(NR.id==i.ramal).select().first()}}{{=ramal.nome+' - '+ramal.ramal}}</pre></td> -->
+    <!-- <td><pre>{{status = db(TIPO.id==i.status).select().first()}}{{=status.tipo_status}}</pre></td> -->
+    <td><pre>{{=i.obs}}</pre></td>
+    <td><pre>{{=i.msg}}</pre></td>
+    <!-- <td><pre>{{atendente = db(db.auth_user.id==i.created_by).select().first()}}{{=atendente.first_name+' '+atendente.last_name}}</pre></td> -->
+    <td><pre>{{=i.atendente}}</pre></td>
+  </tr>
+{{cont+=1}}
+{{pass}}
+</table>
+{{if cont==0:}}<h3>{{='Nenhuma chamada no período selecionado.'}}</h3>
+{{else:}}<h3>Foram atendidas {{=cont}} chamadas no período selecionado.</h3>{{pass}}
+
+</div>
+
+

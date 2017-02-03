@@ -1,0 +1,68 @@
+{{extend 'principal_admin.html'}}
+
+<div id="interface_adm">
+
+<h3>Este produto será excluído do banco de dados.</h3>
+
+<nav id="botoesdel_canc">
+	<ul>
+		<li>{{=A('', _href='../confirma_delete/%s'%(produto.id), _class="confirma btn btn-danger fa fa-trash-o fa-lg")}}</li>
+		<li>{{=A('', _href='../index_admin/%s'%(session.req), _class="cancela btn btn-info fa fa-undo fa-lg")}}</li>
+	</ul>
+</nav>
+<br /><br />
+
+
+<div id="tabela_titulos">
+	<table id="titulos">
+	<tr><td id="linhas"><b>IMAGEM</b></td></tr>
+	<tr><td><b>FABRICANTE</b></td></tr>
+	<tr><td><b>MODELO</b></td></tr>
+	<tr><td><b>TIPO</b></td></tr>
+	<tr><td><b>TECNOLOGIA</b></td></tr>
+	<tr><td><b>LENTE</b></td></tr>
+	<tr><td><b>ÂNGULO DE VISÃO</b></td></tr>
+	<tr><td><b>RESOLUÇÃO</b></td></tr>
+	<tr><td><b>WDR / BLC</b></td></tr>
+	<tr><td><b>ALCANCE DO IR</b></td></tr>
+	<tr><td><b>CONSUMO MÁXIMO</b></td></tr>
+	<tr><td><b>GRAU DE PROTEÇÃO</b></td></tr>
+	<tr><td><b>LOCAL DE INSTALAÇÃO</b></td></tr>
+	<tr><td><b>IP</b></td></tr>
+	<tr><td><b>ONVIF</b></td></tr>
+	<tr><td><b>USUÁRIO</b></td></tr>
+	<tr><td><b>SENHA</b></td></tr>
+	<tr><td><b>SERIAL</b></td></tr>
+	<tr><td><b>SWITCH POE</b></td></tr>
+	</table>
+</div>
+
+
+
+<div id="tabela_dados">
+	<table id="dados">
+	<tr><td><img class="fundo" src="{{=URL('download', args=produto.foto)}}" width="150" height="150" alt=""/></td></tr>
+	<tr><td class="destaque">{{=produto.fabricante}}</td></tr>
+	<tr><td>{{=produto.modelo}}</td></tr>
+	<tr><td>{{=produto.tipo}}</td></tr>
+	<tr><td>{{=produto.tec}}</td></tr>
+	<tr><td>{{=produto.lente}}</td></tr>
+	<tr><td>{{=produto.angulo}}</td></tr>
+	<tr><td>{{=produto.resolucao}}</td></tr>
+	<tr><td>{{=produto.wdr_blc}}</td></tr>
+	<tr><td>{{=produto.alcance_ir}}</td></tr>
+	<tr><td>{{=produto.consumo}}</td></tr>
+	<tr><td>{{=produto.grau}}</td></tr>
+	<tr><td>{{=produto.int_ext}}</td></tr>
+	<tr><td>{{=produto.ip}}</td></tr>
+	<tr><td>{{=produto.onvif}}</td></tr>
+	<tr><td>{{=produto.usuario}}</td></tr>
+	<tr><td>{{=produto.senha}}</td></tr>
+	<tr><td>{{=produto.serial}}</td></tr>
+	<tr><td>{{=produto.switch_poe}}</td></tr>
+	</table>
+</div>
+
+
+
+</div>

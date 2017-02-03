@@ -1,0 +1,23 @@
+{{extend 'layout_principal.html'}}
+
+{{include 'web2py_ajax.html'}}
+
+<div id="nav">
+{{=LABEL(XML('<h3>ERRO</h3><br /><b>Clique em voltar</b>'), _class='test', _id=0)}}
+
+</div>
+{{MENU([['One', False, 'link1'], ['Two', False, 'link2']])}}
+<ul class="web2py-menu web2py-menu-vertical">
+  <li><a href="link1">One</a></li>
+  <li><a href="link2">Two</a></li>
+</ul>
+
+{{MENU([['One', False, 'link1', [['Two', False, 'link2']]]])}}
+<ul class="web2py-menu web2py-menu-vertical">
+  <li class="web2py-menu-expand">
+     <a href="link1">One</a>
+     <ul class="web2py-menu-vertical">
+        <li><a href="link2">Two</a></li>
+     </ul>
+  </li>
+</ul>

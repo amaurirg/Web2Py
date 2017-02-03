@@ -1,0 +1,304 @@
+@charset "UTF-8";
+
+*{margin: 0; padding: 0; border: 0}
+
+h3{
+	font-family: arial, sans-serif;
+	padding: 0px 0px 20px 20px;
+	text-align: left;
+	font-weight: bold;
+	font-style: italic;
+	color: #3463A9;
+}
+
+h4{
+	font-family: arial, sans-serif;
+	padding: 0px 0px 20px 20px;
+	text-align: left;
+	color: #3463A9;
+}
+
+div#cabecalho{
+	height: 90px;
+	/*border: 1px solid #000;*/
+	margin: 5px;
+	position: relative;
+}
+
+div#cabecalho img{
+	margin-top: 0px;
+	padding: 10px;
+	float: left;
+}
+
+div#buscar{
+	margin: auto;
+	padding: 28px 250px;
+}
+
+.usuario{
+	float: right;
+	padding: 38px 90px 32px 32px;
+}
+
+div#links{
+	float: right;
+	padding: 32px;
+}
+
+div#links ul li{
+	display: inline-block;
+	margin: 12px;
+}
+
+div#links a{
+	color: #3463A9;
+	font-family: arial, sans-serif;
+	font-weight: bold;
+	text-decoration-line: none;
+}
+
+div#links a:hover{
+	color: red;
+	text-decoration: none;
+}
+
+div#interface{
+	width: 98%;
+	height: 750px;
+	margin: 10px auto;
+	box-shadow: 1px 1px 4px rgba(0,0,0,.5);
+	display: block;
+	position: absolute;
+}
+
+div#interface_adm{
+	width: 98%;
+	/*overflow:auto;*/
+	height: 1000px;
+	margin: 10px auto;
+	box-shadow: 1px 1px 4px rgba(0,0,0,.5);
+	display: block;
+	position: absolute;
+}
+
+table#titulos {
+	border: 1px solid #606060;
+	border-spacing: 0px;
+	float: left;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 0px;
+	display: block;
+	position: relative;
+}
+
+table#titulos td{
+	border: 1px solid #606060;
+	padding: 5px;
+	font-family: arial, sans-serif;
+	text-align: right;
+	color: #ffffff;
+	background-color: #606060;	
+}
+
+table#titulos td#linhas{
+	padding: 70px 0px;
+}
+
+table#dados img{
+	transition: 0.4s;
+}
+
+
+table#dados img:hover{
+	border: 1px solid #606060;
+	transform: scale(2.4);
+}
+
+table#dados{
+	border: 1px solid #000;
+	/*box-shadow: 1px 1px 4px rgba(0,0,0,.4);*/
+	float: left;
+	border-spacing: 0px;
+	margin-left: 10px;
+	margin-top: 0px;
+	display: block;
+	text-align: center;
+}
+
+table#dados td{
+	border: 1px solid #000;
+	padding: 5px;
+	font-family: arial, sans-serif;
+	background-color: #ddd;
+	color: #000;
+}
+
+table#dados td.destaque{
+	background-color: #606060;
+	color: #fff;
+	font-weight: bold;
+}
+
+div#editar{
+	border: 1px solid #606060;
+	font-family: arial, sans-serif;
+	background-color: #7E7E8A;
+	width: 98%;
+	margin: 15px;
+	box-shadow: 1px 1px 4px rgba(0,0,0,.5);
+	padding: 15px 30px;
+	position: absolute;
+}
+
+div#rodape{
+	margin: 10px 5px;
+	height: 80px;
+	border: 1px solid #000;
+	clear: both;
+}
+
+div#rodape h2{
+	padding: 0px;
+}
+
+div#cadastro{
+	width: 98%;
+	margin: 15px;
+	box-shadow: 1px 1px 4px rgba(0,0,0,.5);
+	padding: 15px 10px;
+	background-color: #EEEEEE;	
+	position: absolute;
+}
+
+div#dados_esq{
+	width: 25%;
+	padding: 10px 20px;
+	float: left;
+	position: relative;
+}
+
+div#dados_meio{
+	width: 25%;
+	padding: 10px 20px;
+	float: left;
+	position: relative;
+}
+
+div#dados_dir{
+	width: 25%;
+	padding: 10px 20px;
+	float: left;
+	position: relative;
+}
+
+div#bot_cadastrar{
+	width: 25%;
+	padding: 10px 20px;
+	float: left;
+	position: relative;
+}
+
+div#bot_cadastrar{
+	text-align: center;
+}
+
+div#bot_cadastrar p{
+	text-align: center;
+}
+
+div#cadastro input[type=text]{
+	border: 1px solid #606060;
+	box-shadow: 2px 2px 1px rgba(0,0,0,.4);
+}
+
+::-webkit-input-placeholder {
+   color: rgba(0,0,0,.4); 
+   font: 14px verdana, arial, sans-serif;
+}
+
+:-moz-placeholder {
+   color: rgba(0,0,0,.4); 
+   font: 14px verdana, arial, sans-serif;
+}
+
+::-moz-placeholder {
+   color: rgba(0,0,0,.4); 
+   font: 14px verdana, arial, sans-serif;
+}
+
+:-ms-input-placeholder {  
+   color: rgba(0,0,0,.4);   
+   font: 14px verdana, arial, sans-serif;
+}
+
+div#mensagem h4{
+	margin-top: 0px;
+	padding: 7px;
+	background-color: #fff;
+	border: 1px solid rgba(0,0,0,.4);
+	box-shadow: 2px 2px 1px rgba(0,0,0,.4);
+	font: 14px verdana, arial, sans-serif;
+}
+
+div#logo_es{
+	margin: 40px auto;
+	height: 100px;
+	text-align: center;
+}
+
+div#login{
+    background-color:#eeeeee;
+    line-height:50px;
+    width: 350px;
+    padding:15px; 
+    font: 16px "Calibri"; 
+    margin: auto;
+}
+
+div#login h4{
+	text-align: center;
+	width: 270px;
+	margin: auto;
+}
+
+.pager{
+	margin: auto;
+	position: relative;
+}
+
+nav#botoesdel_canc{
+	display: block;
+}
+
+nav#botoesdel_canc ul{
+	list-style: none;
+	position: relative;
+	top: 0px;
+	left: 180px;
+}
+
+nav#botoesdel_canc li{
+	display: inline-block;
+	padding: 0px 20px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: bold;
+	font-size: 12pt;
+}
+
+.confirma{
+	background: #A52020;
+}
+
+.cancela{
+	background: #54BCD6;
+}
+
+.botao_menu a i{
+	font-weight: bold;
+	font-size: 20pt;
+	float: right;
+	color: #fff;
+}
+

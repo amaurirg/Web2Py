@@ -1,0 +1,53 @@
+{{extend 'principal.html'}}
+
+<div id="interface">
+
+{{=lbl}}
+
+<table id="titulos">
+<tr><td><b>FABRICANTE</b></td></tr>
+<tr><td><b>MODELO</b></td></tr>
+<tr><td><b>TIPO</b></td></tr>
+<tr><td><b>TECNOLOGIA</b></td></tr>
+<tr><td><b>LENTE</b></td></tr>
+<tr><td><b>ÂNGULO DE VISÃO</b></td></tr>
+<tr><td><b>RESOLUÇÃO</b></td></tr>
+<tr><td><b>WDR / BLC</b></td></tr>
+<tr><td><b>ALCANCE DO IR</b></td></tr>
+<tr><td><b>CONSUMO MÁXIMO</b></td></tr>
+<tr><td><b>GRAU DE PROTEÇÃO</b></td></tr>
+<tr><td><b>LOCAL DE INSTALAÇÃO</b></td></tr>
+<tr><td><b>IP</b></td></tr>
+<tr><td><b>USUÁRIO</b></td></tr>
+<tr><td><b>SENHA</b></td></tr>
+<tr><td><b>SERIAL</b></td></tr>
+<tr><td><b>SWITCH POE</b></td></tr>
+</table>
+
+
+
+{{for i in camera:}}
+
+<table id="dados">
+<tr><td>{{=i.fabricante}}</td></tr>
+<tr><td>{{=i.modelo}}</td></tr>
+<tr><td>{{=i.tipo}}</td></tr>
+<tr><td>{{=i.tec}}</td></tr>
+<tr><td>{{=i.lente}}</td></tr>
+<tr><td>{{=i.angulo}}</td></tr>
+<tr><td>{{=i.resolucao}}</td></tr>
+<tr><td>{{=i.wdr_blc}}</td></tr>
+<tr><td>{{=i.alcance_ir}}</td></tr>
+<tr><td>{{=i.consumo}}</td></tr>
+<tr><td>{{=i.grau}}</td></tr>
+<tr><td>{{=i.int_ext}}</td></tr>
+<tr><td>{{=i.ip}}</td></tr>
+<tr><td>{{=i.usuario}}</td></tr>
+<tr><td>{{=i.senha}}</td></tr>
+<tr><td>{{=i.serial}}</td></tr>
+<tr><td>{{=i.switch_poe}}</td></tr>
+</table>
+
+{{pass}}
+
+</div>

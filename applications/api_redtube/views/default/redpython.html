@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>{{=response.title or ''}}</title>
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<style>
+	.txt-video{
+	white-space: nowrap;
+	width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	}
+	.img-video{
+	width: 100%;
+	cursor: pointer;
+	}
+	</style>
+</head>
+<body>
+
+	<div class="modal fade" tabindex="-1" role="dialog">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title">Modal Title</h4>
+	      </div>
+	      <div class="modal-body">
+	        <p>Duração: Tempo&hellip;</p>
+	      </div>
+	      <div class="modal-footer">
+	        
+	      </div>
+	    </div><!-- /.modal-content -->
+	  </div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+
+	<div class="container-fluid">
+		<div class="jumbotron">
+		  <div class="container">
+		    <h2>Vídeos</h2>
+		    <div class="row">
+			  <div class="col-lg-6">
+			  	<form action="">
+				    <div class="input-group">
+				      <input name="texto" type="text" class="form-control" placeholder="Search for..." autofocus>
+				      <span class="input-group-btn">
+				        <button class="btn btn-default btn-primary" type="submit">Go!</button>
+				      </span>
+				    </div><!-- /input-group -->
+			    </form>
+			  </div><!-- /.col-lg-6 -->
+			</div><!-- /.row -->
+			  </div>
+		</div>
+
+	<h4>{{=qtde}}</h4>
+			<div class="row">
+				{{for item in lista:}}
+				  <div class="col-sm-6 col-md-3">
+				    <div class="thumbnail" style="height:350px">
+						<a target="_blank" href={{=item['url']}}><img class="img-video" src="{{=item['thumb']}}" alt="..."></a>
+						<div class="caption">
+						    <h4>{{=item['title']}}</h4>
+						    <p class="txt-video">Duração: {{=item['duration']}}</p>
+						  </div>
+						</div>
+				  </div>
+				{{pass}}
+			</div>
+</div>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	
+
+</body>
+</html>

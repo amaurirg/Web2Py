@@ -1,0 +1,86 @@
+{{extend 'principal_admin.html'}}
+
+<div id="interface_adm">
+
+{{=lbl}}
+{{=lbl2}}
+
+<nav>
+  <ul class="pager">
+    <li>{{if not int(request.vars.page)<=1:}}<a href="{{=URL(vars={'camera':request.vars.camera, 'page':int(request.vars.page)-1})}}" class="button alt">Anterior</a>{{pass}}</li>
+    <li>{{if not int(request.vars.page) >= len(camera):}}<a href="{{=URL(vars={'camera':request.vars.camera, 'page':int(request.vars.page)+1})}}" class="button">Próximo</a>{{pass}}</li>
+  </ul>
+</nav>
+<br/>
+<div id="tabela_titulos">
+	<table id="titulos">
+	<tr><td id="linhas"><b>IMAGEM</b></td></tr>
+	<tr><td><b>FABRICANTE</b></td></tr>
+	<tr><td><b>MODELO</b></td></tr>
+	<tr><td><b>TIPO</b></td></tr>
+	<tr><td><b>TECNOLOGIA</b></td></tr>
+	<tr><td><b>LENTE</b></td></tr>
+	<tr><td><b>ÂNGULO DE VISÃO</b></td></tr>
+	<tr><td><b>RESOLUÇÃO</b></td></tr>
+	<tr><td><b>WDR / BLC</b></td></tr>
+	<tr><td><b>ALCANCE DO IR</b></td></tr>
+	<tr><td><b>CONSUMO MÁXIMO</b></td></tr>
+	<tr><td><b>GRAU DE PROTEÇÃO</b></td></tr>
+	<tr><td><b>LOCAL DE INSTALAÇÃO</b></td></tr>
+	<tr><td><b>IP</b></td></tr>
+	<tr><td><b>ONVIF</b></td></tr>
+	<tr><td><b>USUÁRIO</b></td></tr>
+	<tr><td><b>SENHA</b></td></tr>
+	<tr><td><b>SERIAL</b></td></tr>
+	<tr><td><b>SWITCH POE</b></td></tr>
+	<tr><td class="em_branco">&nbsp;</td></tr>
+	<tr><td><b>EDITAR PRODUTO</b></td></tr>
+	<tr><td><b>DELETAR PRODUTO</b></td></tr>
+	</table>
+</div>
+
+{{response.camera or ''}}
+{{for i in camera:}}
+
+<div id="tabela_dados">
+	<table id="dados">
+	<tr><td><img class="fundo" src="{{=URL('download', args=i.foto)}}" width="150" height="150" alt=""/></td></tr>
+	<tr><td class="destaque">{{=i.fabricante}}</td></tr>
+	<tr><td>{{=i.modelo}}</td></tr>
+	<tr><td>{{=i.tipo}}</td></tr>
+	<tr><td>{{=i.tec}}</td></tr>
+	<tr><td>{{=i.lente}}</td></tr>
+	<tr><td>{{=i.angulo}}</td></tr>
+	<tr><td>{{=i.resolucao}}</td></tr>
+	<tr><td>{{=i.wdr_blc}}</td></tr>
+	<tr><td>{{=i.alcance_ir}}</td></tr>
+	<tr><td>{{=i.consumo}}</td></tr>
+	<tr><td>{{=i.grau}}</td></tr>
+	<tr><td>{{=i.int_ext}}</td></tr>
+	<tr><td>{{=i.ip}}</td></tr>
+	<tr><td>{{=i.onvif}}</td></tr>
+	<tr><td>{{=i.usuario}}</td></tr>
+	<tr><td>{{=i.senha}}</td></tr>
+	<tr><td>{{=i.serial}}</td></tr>
+	<tr><td>{{=i.switch_poe}}</td></tr>
+	<tr><td class="em_branco">&nbsp;</td></tr>
+	<tr><td><a href="{{=URL('editar', args=i.id)}}"><span class="glyphicon glyphicon-pencil"></span></a></td></tr>
+	<tr><td><a href="{{=URL('deletar', args=i.id)}}" class="delete_button"><span class="glyphicon glyphicon-trash" aria-hidden="true"></a></span></td></tr>
+	</table>
+</div>
+
+{{pass}}
+
+<script>
+    $(document).ready(function(){
+        $('.delete_button').click(function(e){
+            if (!confirm('Deseja realmente deletar o produto?'))
+                e.preventDefault();
+        });
+    });
+</script>
+
+</div>
+
+
+

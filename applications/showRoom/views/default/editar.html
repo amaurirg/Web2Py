@@ -1,0 +1,119 @@
+{{extend 'principal_admin.html'}}
+
+<div id="cadastro">
+	<h3>Alterar Produto</h3>
+
+
+	<div id="dados_esq">
+		{{=form.custom.begin}}
+		{{form.elements('#cameras_fabricante')[0]['_class']='form-control'}}
+		{{=form.custom.widget.fabricante}}
+		<br />
+
+		{{form.elements('#cameras_modelo')[0]['_class']='form-control'}}
+		{{=form.custom.widget.modelo}}
+		<br />
+
+		{{form.elements('#cameras_tipo')[0]['_class']='form-control'}}
+		{{=form.custom.widget.tipo}}
+		<br />
+
+		{{form.elements('#cameras_tec')[0]['_class']='form-control'}}
+		{{=form.custom.widget.tec}}
+		<br />
+		
+		{{form.elements('#cameras_lente')[0]['_class']='form-control'}}
+		{{=form.custom.widget.lente}}
+		<br />
+		
+		{{form.elements('#cameras_angulo')[0]['_class']='form-control'}}
+		{{=form.custom.widget.angulo}}
+		<br />
+	</div>
+
+	<div id="dados_meio">		
+		{{form.elements('#cameras_resolucao')[0]['_class']='form-control'}}
+		{{=form.custom.widget.resolucao}}
+		<br />
+		
+		{{form.elements('#cameras_wdr_blc')[0]['_class']='form-control'}}
+		{{=form.custom.widget.wdr_blc}}
+		<br />
+		
+		{{form.elements('#cameras_alcance_ir')[0]['_class']='form-control'}}
+		{{=form.custom.widget.alcance_ir}}
+		<br />
+		
+		{{form.elements('#cameras_consumo')[0]['_class']='form-control'}}
+		{{=form.custom.widget.consumo}}
+		<br />
+		
+		{{form.elements('#cameras_grau')[0]['_class']='form-control'}}
+		{{=form.custom.widget.grau}}
+		<br />
+
+		{{form.elements('#cameras_int_ext')[0]['_class']='form-control'}}
+		{{=form.custom.widget.int_ext}}
+		<br />
+	</div>
+
+	<div id="dados_dir">
+		{{form.elements('#cameras_ip')[0]['_class']='form-control'}}
+		{{=form.custom.widget.ip}}
+		<br />
+
+		{{form.elements('#cameras_onvif')[0]['_class']='form-control'}}
+		{{=form.custom.widget.onvif}}
+		<br />
+
+		{{form.elements('#cameras_usuario')[0]['_class']='form-control'}}
+		{{=form.custom.widget.usuario}}
+		<br />
+
+		{{form.elements('#cameras_senha')[0]['_class']='form-control'}}
+		{{=form.custom.widget.senha}}
+		<br />
+
+		{{form.elements('#cameras_serial')[0]['_class']='form-control'}}
+		{{=form.custom.widget.serial}}
+		<br />
+
+		{{form.elements('#cameras_switch_poe')[0]['_class']='form-control'}}
+		{{=form.custom.widget.switch_poe}}
+		<br />
+	</div>
+
+	<div id="bot_cadastrar">
+		<img class="fundo" src="{{=URL('download', args=novo.foto)}}" width="200" height="200" alt=""/>
+		<br />
+		{{form.elements('#cameras_foto')[0]}}<br />
+		{{=form.custom.widget.foto}}
+		
+		<br />
+		<p>{{=form.custom.submit}}</p>
+		<br />
+
+		<div id="mensagem">
+			<h4>{{=response.flash}}</h4>
+		</div>
+		
+		{{=form.custom.end}}
+
+	</div>
+</div>
+
+
+
+
+
+<!--
+{{extend 'principal_admin.html'}}
+
+<div id="editar">
+	
+<h3>Atualizar Produto</h3>
+{{=response.flash}}<br /><br />
+{{=form}}
+
+</div>
+-->

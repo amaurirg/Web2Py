@@ -1,0 +1,47 @@
+{{extend 'layout.html'}}
+
+<div class="compare">
+
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAPd-LOVPTsTHb_9FWFTupYPEdl3wdwkrY&libraries=places"></script>
+
+<script>
+$(function () {
+    var input = document.getElementById('searchTextField');
+    var autocomplete = new google.maps.places.Autocomplete(input, {
+        types: ["geocode"]
+    });
+});
+
+$(function () {
+    var input = document.getElementById('searchTextField2');
+    var autocomplete = new google.maps.places.Autocomplete(input, {
+        types: ["geocode"]
+    });
+});
+</script>
+
+<h2>Compare o tempo e o valor gasto em reuniões:</h2><br />
+{{=form.custom.begin}}
+{{form.elements('#no_table_origem__row')[0]['class']='input-large'}}
+{{=form.custom.widget.origem}}<br/><br/>
+{{form.elements('#no_table_destino__row')[0]['class']='input-large'}}
+{{=form.custom.widget.destino}}<br/><br/>
+{{form.elements('#no_table_transporte')[0]['class']='input-large'}}
+{{=form.custom.widget.transporte}}
+<p>Tempo de deslocamento (ida e volta):{{=' %s:%s:%s'%(dia,hora,minutos)}}</p>
+<p>Distância do deslocamento (ida e volta):{{=' ' + distancia}}</p>
+
+{{
+valor = str(valorTotal)
+total = '0,00'
+}}
+
+{{
+if '.' in valor:
+  total = valor.replace('.', ',')
+pass
+}}
+<p>Valor do deslocamento (ida e volta):&nbsp;R$&nbsp;{{='  %s' %(total)}}</p>
+{{=form.custom.submit}}
+{{=form.custom.end}}
+</div>

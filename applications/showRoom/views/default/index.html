@@ -1,0 +1,62 @@
+{{extend 'principal.html'}}
+
+{{
+if auth.has_membership('admin'):
+    redirect(URL('index_admin'))
+else:
+	pass}}
+
+{{=lbl}}
+{{=lbl2}}
+
+<nav>
+  <ul class="pager">
+    <li>{{if not int(request.vars.page)<=1:}}<a href="{{=URL('index', vars={'camera':request.vars.camera, 'page':int(request.vars.page)-1})}}" class="button alt">Anterior</a>{{pass}}</li>
+    <li>{{if not int(request.vars.page) >= len(camera):}}<a href="{{=URL('index', vars={'camera':request.vars.camera, 'page':int(request.vars.page)+1})}}" class="button">Próximo</a>{{pass}}</li>
+  </ul>
+</nav>
+<br/>
+<div id="interface">
+
+<div id="tabela_titulos">
+	<table id="titulos">
+	<tr><td id="linhas"><b>IMAGEM</b></td></tr>
+	<tr><td><b>FABRICANTE</b></td></tr>
+	<tr><td><b>MODELO</b></td></tr>
+	<tr><td><b>TIPO</b></td></tr>
+	<tr><td><b>TECNOLOGIA</b></td></tr>
+	<tr><td><b>LENTE</b></td></tr>
+	<tr><td><b>ÂNGULO DE VISÃO</b></td></tr>
+	<tr><td><b>RESOLUÇÃO</b></td></tr>
+	<tr><td><b>WDR / BLC</b></td></tr>
+	<tr><td><b>ALCANCE DO IR</b></td></tr>
+	<tr><td><b>CONSUMO MÁXIMO</b></td></tr>
+	<tr><td><b>GRAU DE PROTEÇÃO</b></td></tr>
+	<tr><td><b>LOCAL DE INSTALAÇÃO</b></td></tr>
+	</table>
+</div>
+
+{{for i in camera:}}
+
+<div id="tabela_dados">
+	<table id="dados">
+	<tr><td><img class="fundo" src="{{=URL('download', args=i.foto)}}" width="150" height="150" alt=""/></td></tr>
+	<tr><td class="destaque">{{=i.fabricante}}</td></tr>
+	<tr><td>{{=i.modelo}}</td></tr>
+	<tr><td>{{=i.tipo}}</td></tr>
+	<tr><td>{{=i.tec}}</td></tr>
+	<tr><td>{{=i.lente}}</td></tr>
+	<tr><td>{{=i.angulo}}</td></tr>
+	<tr><td>{{=i.resolucao}}</td></tr>
+	<tr><td>{{=i.wdr_blc}}</td></tr>
+	<tr><td>{{=i.alcance_ir}}</td></tr>
+	<tr><td>{{=i.consumo}}</td></tr>
+	<tr><td>{{=i.grau}}</td></tr>
+	<tr><td>{{=i.int_ext}}</td></tr>
+	</table>
+</div>
+
+{{pass}}
+
+</div>
+

@@ -1,0 +1,71 @@
+{{extend 'layout_principal.html'}}
+	<h4>&nbsp;&nbsp;&nbsp;&nbsp;Preencha os campos para salvar uma nova chamada</h4>
+<div id='nav3'>
+	{{=form.custom.begin}}
+	<div id='nav4'>
+	{{form.elements('#recepcao_tel')[0]['class']='input-large'}}
+	{{form.elements('#recepcao_tel')[0]['_placeholder']='TELEFONE'}}
+	{{=form.custom.widget.tel}}
+
+	{{form.elements('#recepcao_nome')[0]['class']='input-large'}}
+	{{form.elements('#recepcao_nome')[0]['_placeholder']='NOME'}}
+	{{=form.custom.widget.nome}}
+
+	{{form.elements('#recepcao_emp')[0]['class']='input-large'}}
+	{{form.elements('#recepcao_emp')[0]['_placeholder']='EMPRESA'}}
+	{{=form.custom.widget.emp}}
+	
+	{{form.elements('#recepcao_prod')[0]['class']='input-large'}}
+	{{form.elements('#recepcao_prod')[0]['_placeholder']='PRODUTO'}}
+	{{=form.custom.widget.prod}}
+
+	{{form.elements('#recepcao_ramal')[0]['class']='input-large'}}
+	{{=form.custom.widget.ramal}}
+
+	{{form.elements('#recepcao_status')[0]['class']='input-large'}}
+	{{=form.custom.widget.status}}
+	</div>
+	<div id='nav6'>
+	{{form.elements('#recepcao_obs')[0]['class']='input-large'}}
+	{{form.elements('#recepcao_obs')[0]['_placeholder']='OBSERVAÇÕES'}}
+	{{=form.custom.widget.obs}}
+	</div>
+	<div id='nav7'>
+	{{form.elements('#recepcao_msg')[0]['class']='input-large'}}
+	{{form.elements('#recepcao_msg')[0]['_placeholder']='MENSAGEM PARA O EMAIL'}}
+	{{=form.custom.widget.msg}}
+	</div>
+	<div id='nav8'><br /><br />
+	{{form.elements('#recepcao_env')[0]['class']='input-large'}}
+	{{=form.custom.widget.env}}<br /><br />
+	{{=form.custom.submit}}<br /><br />
+	{{=button}}
+	</div>
+
+	{{=form.custom.end}}
+</div>
+
+<!--
+  <select>
+  <option value="" disabled selected>ENVIAR EMAIL?</option>
+  <option>SIM</option>
+  <option>NÃO</option>
+</select>
+
+<br />
+-->
+
+<!--
+	{{=SELECT('<hello>', XML('<b>world</b>'), _class='test', _value='a')}}
+	{{=BEAUTIFY({"a": ["hello", XML("world")], "b": (1, 2)})}}
+	{{=INPUT(_type='checkbox', _name='test', _value='a', value=True)}}
+	{{=SELECT('a', OPTGROUP('b', 'c'))}}
+	{{for i in dados:}}
+
+	{{=SELECT(value='a')}}
+	{{pass}}
+
+	{{=SPAN('<hello>', XML('<b>world</b>'), _class='test', _id=0)}}
+	{{=TEXTAREA('<hello>', XML('<b>world</b>'), _class='test')}}
+-->
+

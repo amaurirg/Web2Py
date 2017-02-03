@@ -1,0 +1,10 @@
+[2014-09-04 14:23:01] START
+[2014-09-04 14:23:53] EDIT mapa/models/db.py: 3
+[2014-09-04 14:26:39] EDIT mapa/views/appadmin.html: -165
+[2014-09-04 14:27:45] EDIT mapa/models/db.py: 0
+[2014-09-04 14:28:23] EDIT mapa/controllers/default.py: -5
+[2014-09-04 14:29:29] EDIT mapa/views/appadmin.html: 165
+[2014-09-04 14:29:41] EDIT mapa/views/default/index.html: 56
+[2014-09-04 14:30:18] EDIT mapa/models/db.py: 0
+[2014-09-04 14:30:28] EDIT mapa/controllers/default.py: 0
+[2014-09-04 14:31:09] EDIT mapa/models/db.py: 0

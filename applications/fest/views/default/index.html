@@ -1,0 +1,36 @@
+{{extend 'layout_principal.html'}}
+
+
+<!-- {{=form}} -->
+
+
+
+<div id="nav">
+<h4><b>{{=response.flash}}</b></h4><br />
+{{=form}}
+
+{{for i in num_ramal:}}
+<ul>
+    <li><a href="{{=URL('atualizar_ramal', args=i.id)}}"><b>Nome:</b> {{=i.nome}}<br /><b>Departamento: </b>{{=i.depto}}<br /><b>Ramal:</b> {{=i.ramal}}</a></li>
+</ul>
+{{pass}}
+
+<br />
+<dl>
+    <dt><a href="{{=URL('lista_completa_de_ramais')}}">Ver Lista Completa de Ramais</a></dt>
+    <dt><a href="{{=URL('novo_ramal')}}">Cadastrar Novo Ramal</a></dt>
+    <!-- <dt><a href="{{=URL('atualizar_ramal')}}">Atualizar Ramal</a></dt> -->
+</dl>
+</div>
+
+<div id="section">
+	<p>Esta é uma ferramenta interna de uso exclusivo do Grupo Eletrônica Santana.<br />
+	Estamos no início do desenvolvimento e por isso não criamos quase nada ainda.<br />
+	Em breve teremos várias ferramentas aqui dentro para facilitar o nosso trabalho.<br />
+	Existirá o campo de sugestões para que todos possam nos ajudar a desenvolvê-la visando a praticidade do nosso dia-a-dia.<br />
+	Colocamos a princípio o sistema de ramais para facilitar a busca, pois a alteração já é automática, não necessitando mais de listas de ramais alteradas frequentemente.<br />
+	Esta idéia surgiu pela equipe do GlobalNoc visando facilitar todos os setores.<br />
+	Isso é apenas o começo!
+	</p>
+</div>
+

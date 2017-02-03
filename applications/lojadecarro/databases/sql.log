@@ -1,0 +1,32 @@
+timestamp: 2016-10-03T01:58:40.212326
+CREATE TABLE marca(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    nome CHAR(512) NOT NULL UNIQUE
+);
+success!
+timestamp: 2016-10-03T01:58:40.302456
+CREATE TABLE carro(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    marca INTEGER REFERENCES marca (id) ON DELETE CASCADE  NOT NULL ,
+    modelo CHAR(512) NOT NULL,
+    ano INTEGER NOT NULL,
+    cor CHAR(512) NOT NULL,
+    valor DOUBLE,
+    itens TEXT,
+    estado CHAR(512) NOT NULL,
+    desc TEXT,
+    foto CHAR(512)
+);
+success!
+timestamp: 2016-10-03T01:58:40.452022
+CREATE TABLE comprador(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    id_carro INTEGER REFERENCES carro (id) ON DELETE CASCADE  ,
+    nome CHAR(512),
+    email CHAR(512),
+    telefone CHAR(512),
+    financiar CHAR(1),
+    troca CHAR(1),
+    data TIMESTAMP
+);
+success!

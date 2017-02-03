@@ -1,0 +1,18 @@
+{{extend 'layout.html'}}
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      {{=grid}}
+      <hr>  
+      {{=lista_jogos}}
+      <hr>
+      <h1>Jogos</h1>
+      <ul>
+        {{for time in lista_jogos:}}
+        <li>{{=time}} X </li>
+        {{pass}}
+      </ul>
+    </div>
+  </div>
+</div>

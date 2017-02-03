@@ -1,0 +1,64 @@
+{{extend 'principal_admin.html'}}
+
+<div id="cadastro">
+	<h3>Cadastro de Produtos</h3>
+
+	<div id="dados_esq">
+		{{=form.custom.begin}}
+		<input type="text" name="fabricante" class="form-control" placeholder="Fabricante" autofocus></input>
+		<br />
+		<input type="text" name="modelo" class="form-control" placeholder="Modelo"></input>
+		<br />
+		<input type="text" name="tipo" class="form-control" placeholder="Tipo"></input>
+		<br />
+		<input type="text" name="tec" class="form-control" placeholder="Tecnologia: HDCVI, HDTVI, IP, etc..."></input>
+		<br />
+		<input type="text" name="lente" class="form-control" placeholder="Lente"></input>
+		<br />
+		<input type="text" name="angulo" class="form-control" placeholder="Ângulo de Visão"></input>
+		<br />
+	</div>
+	<div id="dados_meio">
+		<input type="text" name="resolucao" class="form-control" placeholder="Resolução"></input>
+		<br />
+		<input type="text" name="wdr_blc" class="form-control" placeholder="WDR ou BLC?"></input>
+		<br />
+		<input type="text" name="alcance_ir" class="form-control" placeholder="Alcance do IR"></input>
+		<br />
+		<input type="text" name="consumo" class="form-control" placeholder="Consumo de Energia"></input>
+		<br />
+		<input type="text" name="grau" class="form-control" placeholder="Índice de Proteção"></input>
+		<br />
+		<input type="text" name="int_ext" class="form-control" placeholder="Utilização: Interno ou Externo"></input>
+		<br />
+	</div>
+	<div id="dados_dir">
+		<input type="text" name="ip" class="form-control" placeholder="IP"></input>
+		<br />
+		<input type="text" name="onvif" class="form-control" placeholder="Tipo de Onvif"></input>
+		<br />
+		<input type="text" name="usuario" class="form-control" placeholder="Usuário"></input>
+		<br />
+		<input type="text" name="senha" class="form-control" placeholder="Senha"></input>
+		<br />
+		<input type="text" name="serial" class="form-control" placeholder="Serial"></input>
+		<br />
+		<input type="text" name="switch_poe" class="form-control" placeholder="Posição no Switch POE"></input>
+		<br />
+	</div>
+	<div id="bot_cadastrar">
+		{{form.elements('#cameras_foto')[0]['_class']='form-control'}}
+		{{=form.custom.widget.foto}}	
+		<br />	
+		<p>{{=form.custom.submit}}</p>
+		<br /><br />
+		<div id="mensagem">
+			<h4>{{=lbl}}</h4>
+		</div>
+		{{=form.custom.end}}
+	</div>
+</div>
+
+<!--
+<button type="submit" class="btn btn-info btn-sm">Cadastrar</button>
+-->

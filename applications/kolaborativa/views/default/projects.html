@@ -1,0 +1,200 @@
+{{extend 'layout.html'}}
+{{if project != message:}}
+<h1>{{=project.name}}</h1>
+<table>
+<tr>
+<td width="40%">
+<h3>{{=T("Project Info")}}</h3>
+<b>{{=T("Name")}}:</b> {{=project.name}}<br>
+<b>{{=T("Type")}}:</b> {{=g_return_if_empty(project.project_type)}}<br>
+<b>{{=T("Owner")}}:</b> <a href="/{{=project.project_owner.username}}">{{=project.project_owner.username}}</a><br>
+<b>{{=T("Description")}}:</b> {{=g_return_if_empty(project.description)}}
+</td>
+
+<td width="40%">
+<h3>{{=T("Contact Info")}}</h3>
+<b>{{=T("Address")}}:</b> {{=g_return_if_empty(project.address)}} <br>
+<b>{{=T("Phone")}}:</b> {{=g_return_if_empty(project.phone)}} <br>
+<b>{{=T("Links")}}:</b>
+      {{if project.project_links:}}
+            {{for i in project.project_links:}}
+                        {{if i == project.project_links[-1]:}}
+                              <a href="{{=i}}" target="_blank">Link {{=project.project_links.index(i) + 1}}</a><br>
+                        {{else:}}
+                              <a href="{{=i}}" target="_blank">Link {{=project.project_links.index(i) + 1}}</a> |
+                            {{pass}}
+            {{pass}}
+      {{else:}}
+            {{=T("Undefined")}}<br>
+      {{pass}}
+
+<b>{{=T("Email")}}:</b> {{=g_return_if_empty(project.project_mail)}} <br>
+
+{{if project.wanting_team:}}<b>{{=T("We need some more members...")}}</b> <br>
+{{if project.team_wanted:}}
+                        {{if len(project.team_wanted) >= 1:}}
+                        {{=', '.join(project.team_wanted)}}<br>
+                        {{pass}}
+{{pass}}
+{{pass}}
+
+{{if project.wanting_other:}}<b>{{=T("We are looking for other kinds of help...")}}</b> <br>
+{{if project.other_wanted:}}
+                        {{if len(project.other_wanted) >= 1:}}
+                        {{=', '.join(project.other_wanted)}}<br>
+                        {{pass}}
+{{pass}}
+{{pass}}
+</td>
+
+<td>
+{{if project.image:}}
+<img src={{=URL('download', args=project.image)}} width="168px" height="168px">
+{{else:}}
+<img src={{=URL('static', 'images/non_project.png')}} width="168px" height="168px">
+{{pass}}
+</td>
+</tr>
+
+<tr>
+
+
+<td>
+{{if project.video_url:}}
+<h2>{{=T("Video")}}</h2>
+<iframe width="360" height="203" src="{{=project.video_url}}" frameborder="0" allowfullscreen></iframe>
+{{pass}}
+</td>
+
+<td>
+{{if project.slideshare_url:}}
+<h2>Slideshare</h2>
+<iframe src="{{=project.slideshare_url}}" width="490px" height="470px" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:none;" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>
+{{pass}}
+</td>
+
+<td>
+{{if auth.user_id == project.project_owner:}}
+    <a class="btn" href="{{=URL('edit_project', args=request.args(0))}}">{{=T("Edit project")}}</a><br><br>
+    <a class="btn btn_team">{{=T("Searching for members?")}}</a>
+    {{=searching_team}}
+{{pass}}
+</td>
+
+</tr>
+
+<tr>
+<td>
+
+{{if collaborators:}}
+    <h3>{{=T("Who is Kolaborating")}}</h3>
+{{else:}}
+    <h5>{{=T("Nobody is Kolaborating yet")}}</h5>
+{{pass}}
+
+{{for collaborator in collaborators:}}
+  <div class="media">
+       <a href="/{{=collaborator.username}}" class="pull-left">
+           {{if not collaborator.avatar:}}
+          <img src="{{=URL('static', 'images/non_avatar.gif')}}" alt="{{=collaborator.username}}" class="media-object" width="50px" height="50px">
+            {{else:}}
+                  <img src="{{=URL('download', args=collaborator.avatar)}}" alt="{{=collaborator.username}}" class="media-object" width="50px" height="50px">
+            {{pass}}
+        </a>
+      <div class="media-body">
+        <b>{{=T("Kolaborator")}}:</b>
+        {{=g_return_if_empty(collaborator.username)}}<br>
+        <b>{{=T("Profession")}}:</b>
+                  {{if hasattr(collaborator, 'professions'):}}
+                        {{for job in collaborator.professions:}}
+                              {{if job == collaborator.professions[-1]:}}
+                                    {{=job.profession}}<br>
+                              {{else:}}
+                                    {{=job.profession}},
+                              {{pass}}
+                        {{pass}}
+                  {{else:}}
+                        {{=T("Undefined")}}<br>
+                  {{pass}}
+
+            <b>{{=T("Role")}}:</b>
+                  {{=g_return_if_empty(collaborator.role)}}
+
+            {{if auth.user_id == project.project_owner:}}
+                  <br>
+                  {{=user_role.custom.begin}}
+                  {{if collaborator.role:}}
+                        <a class="btn btn_edit"><i class="icon-edit"></i></a>
+                  {{else:}}
+                        <a class="btn btn_plus"><i class="icon-plus-sign"></i></a>
+                  {{pass}}
+                  {{user_role.elements(_type="submit")[0] ['_class']="btn btn_ok"}}
+                  {{=user_role.custom.submit}}
+                  {{user_role.elements("#no_table_username")[0] ['_type']="hidden"}}
+                  {{user_role.elements("#no_table_username")[0] ['_value']=collaborator.username}}
+                  {{=user_role.custom.widget.username}}<br>
+                  {{user_role.elements("#no_table_role")[0] ['_placeholder']=T("Define role")}}
+                  {{user_role.elements("#no_table_role")[0] ['_name']="role"}}
+                  {{user_role.elements("#no_table_role")[0] ['_class']="field_role"}}
+                  {{=user_role.custom.widget.role}}<br>
+                  {{=user_role.custom.end}}
+            {{pass}}
+      </div>
+    </div>
+
+{{pass}}
+</ul>
+</td>
+
+</tr>
+<tr>
+<td>
+<h3>{{=T('Comments')}}</h3>
+{{=LOAD('default','comments.load',ajax=True)}}
+<td>
+</tr>
+</table>
+{{else:}}
+{{=project}}
+{{pass}}
+
+<script>
+jQuery(document).ready(function(){
+   $('.field_role').hide();
+   $('.btn_ok').hide();
+   $('#searching_team').hide();
+
+   jQuery(".btn_plus").on("click", function(){
+      var form = $(this).closest("#user_role");
+      form.find(".field_role").toggle();
+      form.find(".btn_ok").toggle();
+      });
+   jQuery(".btn_edit").on("click", function(){
+      var form = $(this).closest("#user_role");
+      form.find(".field_role").toggle();
+      form.find(".btn_ok").toggle();
+      });
+   jQuery(".btn_team").on("click", function(){
+      $(this).closest('td').find("#searching_team").toggle();
+   })
+
+   jQuery('.btn_team').on("click", function(){
+        if(jQuery('#projects_wanting_team').attr('checked'))
+            jQuery('#projects_team_wanted__row').show();
+        else jQuery('#projects_team_wanted__row').hide();
+
+        if(jQuery('#projects_wanting_other').attr('checked'))
+            jQuery('#projects_other_wanted__row').show();
+        else jQuery('#projects_other_wanted__row').hide();});
+
+   jQuery('#projects_wanting_team').change(function(){
+        if(jQuery('#projects_wanting_team').attr('checked'))
+            jQuery('#projects_team_wanted__row').show();
+        else jQuery('#projects_team_wanted__row').hide();});
+   jQuery('#projects_wanting_other').change(function(){
+        if(jQuery('#projects_wanting_other').attr('checked'))
+            jQuery('#projects_other_wanted__row').show();
+        else jQuery('#projects_other_wanted__row').hide();});
+});
+
+</script>

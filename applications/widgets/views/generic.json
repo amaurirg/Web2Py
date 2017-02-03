@@ -1,0 +1,11 @@
+{{
+###
+# response._vars contains the dictionary returned by the controller action
+###
+try:
+   from gluon.serializers import json
+   response.write(json(matches),escape=False)
+   response.headers['Content-Type']='text/json'
+except:
+   raise HTTP(405,'no json')
+}}
