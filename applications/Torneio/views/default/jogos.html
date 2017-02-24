@@ -3,7 +3,9 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-      {{=grid}}
+      <div id="grid">
+        {{=grid}}
+      </div>
       <h1>Jogos</h1>
       <div class="row">
         <div>
@@ -18,18 +20,63 @@
     </div>
   </div>
 
-<div class="row">
-        <div>
-          {{for i,jogo in enumerate(lista_jogos):}}
-          <ul  class="col-xs-4 col-md-4 col-lg-4 list-group">
-            <li class="list-group-item">
-              <label for="{{='jogo%s'%i}}">{{=lista_jogos[i][0]}}&nbsp;</label>
-              <input id="{{='jogo%s'%i}}" type="text" name="{{='jogo%s'%i}}" style="width:25px;">&nbsp;X
-            <input type="text" name="jogo" style="width:25px;">&nbsp;
-            <label for="{{='jogo%s'%i}}">{{=lista_jogos[i][1]}}&nbsp;</label>&nbsp;<button id="{{='bt%s'%i}}" class="btn btn-primary btn-sm">Alterar</button></li>
-          </ul>
-          {{pass}}
-        </div>
-      </div>
-
+  <div class="row">
+    <div>
+      {{for i,jogo in enumerate(lista_jogos):}}
+      <ul  class="col-xs-4 col-md-4 col-lg-4 list-group">
+        <li id="{{='%s'%i}}" class="list-group-item">
+          <label for="{{='timeA%s'%i}}" text="{{=lista_jogos[i][0]}}">{{=lista_jogos[i][0]}}&nbsp;</label>
+          <input id="{{='timeA%s'%i}}" type="text" name="{{=lista_jogos[i][0]}}" style="width:25px;">&nbsp;X
+          <input id="{{='timeB%s'%i}}" type="text" name="{{=lista_jogos[i][1]}}" style="width:25px;">&nbsp;
+          <label for="{{='timeB%s'%i}}" text="{{=lista_jogos[i][1]}}">{{=lista_jogos[i][1]}}&nbsp;</label>&nbsp;
+          <button id="{{='bt%s'%i}}" class="btn btn-primary btn-sm">Alterar</button>
+        </li>
+      </ul>
+      {{pass}}
+    </div>
+  </div>
 </div>
+
+
+<script type="text/javascript">
+  $(":button").click(function() {
+    var numero = $(this).parent().attr("id");
+    var timeA = 'timeA'+numero;
+    var timeB = 'timeB'+numero;
+    var nomeA = $("#"+timeA).attr("name");
+    var nomeB = $("#"+timeB).attr("name");
+    var valA = parseInt($("#"+timeA).val());
+    var valB = parseInt($("#"+timeB).val());
+
+    if(valA > valB){
+      alert(nomeA + " venceu!");
+      ajax('{{=URL('funcoes', 'atualiza_pontos')}}',
+        [nomeA, nomeB], 'grid');
+    } else if(valB > valA){
+      alert(nomeB + " venceu!");
+    } else{
+      alert("Empate!");
+    }
+    $(this).hide();
+  }); 
+
+  // alert(nomeA);
+  // alert(nomeB);
+  // alert(nomeA + ": " + valA);
+  // alert(nomeB + ": " + valB);
+  // alert($("{{='#timeA'}}"+numero).val());
+  // alert( $("label[for='timeA0']").attr('text'));
+  // alert( $("label[for='timeB0']").attr('text'));
+  // alert($("label[for='timeA0']").attr('text') + " venceu!");      
+  // alert("id="+numero);
+  // alert($("#timeA0").attr("name"));
+  // ajax('{{=URL('funcoes', 'atualiza_pontos')}}',
+  //    ['time'], 'div_clima');
+  // alert($("label[for='timeB0']").attr('text') + " venceu!");
+
+</script>
+
+
+<!--     {{='nomeTimeA'}} = nomeA
+    {{='nomeTimeB'}} = nomeB
+ -->

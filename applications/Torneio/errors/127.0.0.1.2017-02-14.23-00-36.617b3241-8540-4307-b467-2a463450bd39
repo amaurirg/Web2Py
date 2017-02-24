@@ -1,0 +1,21 @@
+(dp1
+S'output'
+p2
+S"<type 'exceptions.TypeError'> 'Storage' object is not callable"
+p3
+sS'layer'
+p4
+S'/home/amauri/web2py/applications/Torneio/controllers/funcoes.py'
+p5
+sS'code'
+p6
+S'def atualiza_pontos():\n\t# equipe = request.vars.\n\tdados = db(CLUBES.clube=="Palmeiras").select()\n\tprint request.vars(0)\n\t# print dados\n\t# return \n\n\n\n\n\n\n\n"""\ndef index():\n    dados = db(CLUBES.clube=="Palmeiras").select(CLUBES.pontos)\n    for dado in dados:\n        res = int(dado.pontos)\n    return res + 3\n"""\n\n\nresponse._vars=response._caller(atualiza_pontos)\n'
+p7
+sS'snapshot'
+p8
+(dp9
+sS'traceback'
+p10
+S'Traceback (most recent call last):\n  File "/home/amauri/web2py/gluon/restricted.py", line 227, in restricted\n    exec ccode in environment\n  File "/home/amauri/web2py/applications/Torneio/controllers/funcoes.py", line 23, in <module>\n  File "/home/amauri/web2py/gluon/globals.py", line 417, in <lambda>\n    self._caller = lambda f: f()\n  File "/home/amauri/web2py/applications/Torneio/controllers/funcoes.py", line 4, in atualiza_pontos\n    print request.vars(0)\nTypeError: \'Storage\' object is not callable\n'
+p11
+s.

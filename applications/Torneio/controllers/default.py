@@ -52,15 +52,17 @@ def jogos():
     # print(lista_jogos)
 
     # random.shuffle(lista_jogos)
-    print(lista_jogos)
+    # print(lista_jogos)
 
     # return dict()
     return dict(grid=grid, lista_jogos=lista_jogos, times=times)
 
 
 def index():
-    
-    return "INDEX"
+    dados = db(CLUBES.clube=="Palmeiras").select(CLUBES.pontos)
+    for dado in dados:
+        res = int(dado.pontos)
+    return res + 3
 
 
 def teste_classe():
