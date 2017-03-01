@@ -1,4 +1,30 @@
 {{extend 'layout.html'}}
 <a href="{{=URL('novo_plano')}}" class="btn btn-primary">Criar novo plano</a>
-{{=grid}}
+
+<div class="row">
+<div class="col-xs-12">
+<table class="table table-striped">
+	<tr>
+		<th>Setor</th>
+		<th>Título</th>
+		<th>Descrição</th>
+		<th>Plano</th>
+		<th>Ação</th>
+		<th>Solução</th>
+		<th>Prazo</th>
+	</tr>
+	{{ for plano in planos: }}
+	<tr>
+		<td>{{ ='%(setor)s' %(plano.depto) }}</td>
+		<td>{{ ='%(problema)s' %(plano.titulo) }}</td>
+		<td>{{ =plano.descricao }}</td>
+		<td>{{ =plano.plano }}</td>
+		<td>{{ =plano.acao }}</td>
+		<td>{{ =plano.solucao }}</td>
+		<td>{{ =plano.prazo }}</td>
+	</tr>
+	{{ pass }}
+</table>
+</div>
+</div>
 <a href="{{=URL('novo_plano')}}" class="btn btn-primary">Criar novo plano</a>

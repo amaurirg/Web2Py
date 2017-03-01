@@ -77,3 +77,4 @@ CREATE TABLE plano(
     prazo DATE NOT NULL
 );
 success!
+success!

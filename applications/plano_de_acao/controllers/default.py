@@ -10,8 +10,11 @@
 
 
 def index():
-    grid = SQLFORM.grid(PLANO)
-    return dict(grid=grid)
+    # grid = SQLFORM.grid(PLANO)
+    # return dict(grid=grid)
+    planos = db(PLANO).select()
+    print planos
+    return dict(planos=planos)
 
 
 def novo_plano():

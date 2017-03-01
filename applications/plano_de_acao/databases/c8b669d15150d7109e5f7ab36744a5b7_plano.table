@@ -1,5 +1,5 @@
 (dp1
-S'solucao'
+S'plano'
 p2
 (dp3
 S'length'
@@ -10,14 +10,14 @@ p5
 I00
 sS'sortable'
 p6
-I7
+I5
 sS'sql'
 p7
-S'TEXT NOT NULL'
+S'TEXT'
 p8
 sS'notnull'
 p9
-I01
+I00
 sS'type'
 p10
 S'text'
@@ -49,10 +49,10 @@ I00
 sg6
 I6
 sg7
-S'TEXT NOT NULL'
+S'TEXT'
 p18
 sg9
-I01
+I00
 sg10
 g11
 ssS'depto'
@@ -72,7 +72,7 @@ I01
 sg10
 S'reference departamento'
 p22
-ssS'plano'
+ssS'solucao'
 p23
 (dp24
 g4
@@ -80,12 +80,12 @@ I32768
 sg5
 I00
 sg6
-I5
+I7
 sg7
-S'TEXT NOT NULL'
+S'TEXT'
 p25
 sg9
-I01
+I00
 sg10
 g11
 ssS'titulo'
@@ -120,10 +120,11 @@ p32
 sg9
 I00
 sg10
-g30
-ssS'descricao'
+S'id'
 p33
-(dp34
+ssS'descricao'
+p34
+(dp35
 g4
 I32768
 sg5
@@ -132,7 +133,7 @@ sg6
 I4
 sg7
 S'TEXT NOT NULL'
-p35
+p36
 sg9
 I01
 sg10
