@@ -1,0 +1,63 @@
+{{extend 'layout.html'}}
+<div class="row">
+	<div class="col-xs-12 col-lg-3">
+		<a href="{{=URL('novo_plano')}}" class="btn btn-primary">Criar novo plano</a><br /><br />
+	</div>
+</div>
+
+<div id="qq"></div>
+
+<div class="row">
+	<div class="col-xs-12">
+		<table class="tablesorter table table-hover">
+		<thead>
+			<tr class="active">
+				<th><button type="button" class="btn btn-active btn-sm">Setor 
+				<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></button></th>
+				<th><button type="button" class="btn btn-active btn-sm">Título 
+				<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></button></th>
+				<th><button type="button" class="btn btn-active btn-sm">Descrição  
+				<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></button></th>
+				<th><button type="button" class="btn btn-active btn-sm">Plano 
+				<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></button></th>
+				<th><button type="button" class="btn btn-active btn-sm">Ação 
+				<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></button></th>
+				<th><button type="button" class="btn btn-active btn-sm">Solução 
+				<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></button></th>
+				<th><button type="button" class="btn btn-active btn-sm">Prazo 
+				<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></button></th>
+				<th><button type="button" class="btn btn-active btn-sm">Dias
+				<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></button></th>
+			</tr>
+		</thead>
+			{{ for plano in planos: }}
+		<tbody>
+			<tr class="link" href="{{=URL('editar_plano', args=plano.id)}}">
+				<td>{{ ='%(setor)s' %(plano.depto) }}</td>
+				<td>{{ ='%(problema)s' %(plano.titulo) }}</td>
+				<td>{{ =plano.descricao }}</td>
+				<td>{{ =plano.plano }}</td>
+				<td>{{ =plano.acao }}</td>
+				<td>{{ =plano.solucao }}</td>
+				<td>{{ =plano.prazo.strftime("%d/%m/%Y") }}</td>
+				{{ faltando = plano.prazo - datetime.date.today() }}
+				{{ if  int(faltando.days) == 1: }}
+				<td>{{ ='FALTA %s DIA' %(faltando.days) }}</td>
+				{{ elif int(faltando.days) == -1: }}
+				<td>{{ ='ATRASADO %s DIA' %(faltando.days * -1) }}</td>
+				{{ elif int(faltando.days) == 0: }}
+				<td>HOJE</td>
+				{{ elif int(faltando.days) < -1: }}
+				<td>{{ ='ATRASADO %s DIAS' %(faltando.days * -1) }}</td>
+				{{ else: }}
+				<td>{{ ='FALTAM %s DIAS' %faltando.days }}</td>
+				{{ pass }}
+			</tr>
+			{{ pass }}
+		</tbody>
+		</table>
+</div>
+</div>
+<a href="{{=URL('novo_plano')}}" class="btn btn-primary">Criar novo plano</a>
+<button id="concluidos" name="test">Concluídos</button>
+<div id="teste"></div>

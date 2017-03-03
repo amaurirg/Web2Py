@@ -78,3 +78,63 @@ CREATE TABLE plano(
 );
 success!
 success!
+timestamp: 2017-03-02T20:11:01.321801
+ALTER TABLE plano ADD modified_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ;
+timestamp: 2017-03-02T20:11:01.383359
+ALTER TABLE plano ADD is_active CHAR(1);
+timestamp: 2017-03-02T20:11:01.515431
+ALTER TABLE plano ADD created_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ;
+timestamp: 2017-03-02T20:11:01.593284
+ALTER TABLE plano ADD created_on TIMESTAMP;
+timestamp: 2017-03-02T20:11:01.660667
+ALTER TABLE plano ADD modified_on TIMESTAMP;
+success!
+timestamp: 2017-03-02T20:45:21.670505
+ALTER TABLE auth_user ADD username CHAR(128);
+timestamp: 2017-03-02T20:45:21.744598
+ALTER TABLE auth_user ADD modified_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ;
+timestamp: 2017-03-02T20:45:21.832633
+ALTER TABLE auth_user ADD is_active CHAR(1);
+timestamp: 2017-03-02T20:45:21.899057
+ALTER TABLE auth_user ADD created_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ;
+timestamp: 2017-03-02T20:45:22.000287
+ALTER TABLE auth_user ADD created_on TIMESTAMP;
+timestamp: 2017-03-02T20:45:22.075987
+ALTER TABLE auth_user ADD modified_on TIMESTAMP;
+success!
+timestamp: 2017-03-02T20:45:22.146445
+ALTER TABLE auth_group ADD modified_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ;
+timestamp: 2017-03-02T20:45:22.264272
+ALTER TABLE auth_group ADD is_active CHAR(1);
+timestamp: 2017-03-02T20:45:22.363870
+ALTER TABLE auth_group ADD created_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ;
+timestamp: 2017-03-02T20:45:22.430274
+ALTER TABLE auth_group ADD created_on TIMESTAMP;
+timestamp: 2017-03-02T20:45:22.486176
+ALTER TABLE auth_group ADD modified_on TIMESTAMP;
+success!
+timestamp: 2017-03-02T20:45:22.546018
+ALTER TABLE auth_membership ADD is_active CHAR(1);
+timestamp: 2017-03-02T20:45:22.607210
+ALTER TABLE auth_membership ADD created_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ;
+timestamp: 2017-03-02T20:45:22.695968
+ALTER TABLE auth_membership ADD created_on TIMESTAMP;
+timestamp: 2017-03-02T20:45:22.762279
+ALTER TABLE auth_membership ADD modified_on TIMESTAMP;
+timestamp: 2017-03-02T20:45:22.850753
+ALTER TABLE auth_membership ADD modified_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ;
+success!
+timestamp: 2017-03-02T20:45:22.921216
+ALTER TABLE auth_permission ADD modified_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ;
+timestamp: 2017-03-02T20:45:23.006420
+ALTER TABLE auth_permission ADD is_active CHAR(1);
+timestamp: 2017-03-02T20:45:23.072202
+ALTER TABLE auth_permission ADD created_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ;
+timestamp: 2017-03-02T20:45:23.161312
+ALTER TABLE auth_permission ADD created_on TIMESTAMP;
+timestamp: 2017-03-02T20:45:23.227835
+ALTER TABLE auth_permission ADD modified_on TIMESTAMP;
+success!
+timestamp: 2017-03-02T20:53:48.614315
+ALTER TABLE plano ADD concluido CHAR(512);
+success!
