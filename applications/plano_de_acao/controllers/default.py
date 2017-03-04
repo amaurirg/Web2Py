@@ -27,26 +27,27 @@ def index():
         redirect(URL('index'))
     elif form.errors:
         response.flash = 'Erros no preenchimento ou campo vazio!'
-        valida = 'erro'
+        # valida = 'erro'
     # else:
     #     response.flash = 'Preencha os campos para salvar ou alterar um plano de ação!'
     # form.add_button('Cancelar', URL('index'), _class='btn btn-primary')
-    button = A('Cancelar', _href='index', _class="btn btn-primary")
+    button = A('Cancelar', _href='index', _class="btn btn-primary", _style="margin-left:30px;border-radius: 5px;")
     # return dict(form=form)
-    return dict(planos=planos, concluidos=concluidos, form=form, button=button, valida=valida)
+    return dict(planos=planos, concluidos=concluidos, form=form, button=button)#, valida=valida)
 
 
 def editar_plano():
     plano = db(PLANO.id == request.args(0, cast=int)).select().first()
-    form = SQLFORM(PLANO, plano)
+    form = SQLFORM(PLANO, plano, submit_button='Salvar')
     if form.process().accepted:
         response.flash = 'Registro alterado com sucesso!'
+        redirect(URL('index'))
     elif form.errors:
-        response.flash = 'Erros no formulário!'
+        response.flash = 'Erros no preenchimento ou campo vazio!'
     # else:
     #     response.flash = 'Nenhuma alteração foi realizada!'
-    form.add_button('Cancelar', URL('index'), _class='btn btn-primary')
-    return dict(form=form, plano=plano)
+    button = A('Cancelar', _href='../', _class="btn btn-primary", _style="margin-left:20px;border-radius: 5px;")
+    return dict(form=form, plano=plano, button=button)
 
 
 def ver_concluido():

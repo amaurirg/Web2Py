@@ -1,3 +1,55 @@
 {{ extend 'layout.html' }}
 
-{{ =form }}
+	<div id="novo_plano" class="row tab-pane fade in">
+		<div class="col-xs-12">
+			{{=form.custom.begin}}
+			<div class="col-xs-3 col-lg-3">
+				<br />
+				{{form.elements('#plano_depto')[0]['class']='form-control'}}
+				{{form.elements('#plano_depto')[0]}}
+				{{=form.custom.label.depto}}
+				{{=form.custom.widget.depto}}
+				<br />
+				{{form.elements('#plano_titulo')[0]['class']='form-control'}}
+				{{form.elements('#plano_titulo')[0]}}
+				{{=form.custom.label.titulo}}
+				{{=form.custom.widget.titulo}}
+				<br />
+				{{form.elements('#plano_prazo')[0]['class']='form-control'}}
+				{{form.elements('#plano_prazo')[0]['_placeholder']='PRAZO'}}
+				{{=form.custom.label.prazo}}
+				{{=form.custom.widget.prazo}}
+				<br />
+				{{=form.custom.label.concluido}}
+				{{=form.custom.widget.concluido}}
+
+				<div class="col-xs-12 text-center">
+					{{form.element(_type='submit')['_style']='border-radius:5px;'}}
+					{{=form.custom.submit}}	{{=button}}
+				</div>
+			</div>
+			<br />
+			<div class="col-xs-3 col-lg-3">
+				{{form.elements('#plano_descricao')[0]['class']='form-control'}}
+				{{form.elements('#plano_descricao')[0]['_style']='height: 350px;'}}
+				{{form.elements('#plano_descricao')[0]['_placeholder']='DESCRIÇÃO'}}
+				{{=form.custom.label.descricao}}
+				{{=form.custom.widget.descricao}}
+			</div>
+			<div class="col-xs-3 col-lg-3">
+				{{form.elements('#plano_plano')[0]['class']='form-control'}}
+				{{form.elements('#plano_plano')[0]['_style']='height: 350px;'}}
+				{{form.elements('#plano_plano')[0]['_placeholder']='PLANO'}}
+				{{=form.custom.label.plano}}
+				{{=form.custom.widget.plano}}
+			</div>
+			<div class="col-xs-3 col-lg-3">
+				{{form.elements('#plano_acao')[0]['class']='form-control'}}
+				{{form.elements('#plano_acao')[0]['_style']='height: 350px;'}}
+				{{form.elements('#plano_acao')[0]['_placeholder']='AÇÃO'}}
+				{{=form.custom.label.acao}}
+				{{=form.custom.widget.acao}}
+			</div>
+			{{=form.custom.end}}
+		</div>
+	</div>
