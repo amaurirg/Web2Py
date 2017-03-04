@@ -7,9 +7,9 @@
 </div>
  -->
 <ul class="nav nav-tabs">
-	<li class="active"><a data-toggle="tab" href="#planos">Planos</a></li>
-	<li><a data-toggle="tab" href="#concluidos">Concluídos</a></li>
-	<li><a data-toggle="tab" href="#novo_plano">Novo Plano</a></li>
+	<li id="li-planos" class="active"><a data-toggle="tab" href="#planos">Planos</a></li>
+	<li id="li-concluidos"><a data-toggle="tab" href="#concluidos">Concluídos</a></li>
+	<li id="li-novo_plano"><a data-toggle="tab" href="#novo_plano">Novo Plano</a></li>
 </ul>
 
 <div class="tab-content">
@@ -28,11 +28,11 @@
 					<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></button></th>
 					<th><button type="button" class="btn btn-active btn-sm">Ação 
 					<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></button></th>
-					<th><button type="button" class="btn btn-active btn-sm">Solução 
-					<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></button></th>
 					<th><button type="button" class="btn btn-active btn-sm">Prazo 
 					<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></button></th>
 					<th><button type="button" class="btn btn-active btn-sm">Dias
+					<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></button></th>
+					<th><button type="button" class="btn btn-active btn-sm">Concluído 
 					<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></button></th>
 				</tr>
 			</thead>
@@ -44,7 +44,6 @@
 					<td>{{ =plano.descricao }}</td>
 					<td>{{ =plano.plano }}</td>
 					<td>{{ =plano.acao }}</td>
-					<td>{{ =plano.solucao }}</td>
 					<td>{{ =plano.prazo.strftime("%d/%m/%Y") }}</td>
 					{{ faltando = plano.prazo - datetime.date.today() }}
 					{{ if  int(faltando.days) == 1: }}
@@ -58,6 +57,7 @@
 					{{ else: }}
 					<td>{{ ='FALTAM %s DIAS' %faltando.days }}</td>
 					{{ pass }}
+					<td>{{ =plano.concluido }}</td>
 				</tr>
 				{{ pass }}
 			</tbody>
@@ -81,35 +81,25 @@
 					<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></button></th>
 					<th><button type="button" class="btn btn-active btn-sm">Ação 
 					<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></button></th>
-					<th><button type="button" class="btn btn-active btn-sm">Solução 
+					<th><button type="button" class="btn btn-active btn-sm">Início 
 					<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></button></th>
-					<th><button type="button" class="btn btn-active btn-sm">Prazo 
+					<th><button type="button" class="btn btn-active btn-sm">Término 
 					<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></button></th>
-					<th><button type="button" class="btn btn-active btn-sm">Dias
+					<th><button type="button" class="btn btn-active btn-sm">Concluído 
 					<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></button></th>
 				</tr>
 			</thead>
 				{{ for concluido in concluidos: }}
 			<tbody>
-				<tr class="link" href="{{=URL('editar_concluido', args=concluido.id)}}">
+				<tr class="link" href="{{=URL('ver_concluido', args=concluido.id)}}">
 					<td>{{ ='%(setor)s' %(concluido.depto) }}</td>
 					<td>{{ ='%(problema)s' %(concluido.titulo) }}</td>
 					<td>{{ =concluido.descricao }}</td>
 					<td>{{ =concluido.plano }}</td>
 					<td>{{ =concluido.acao }}</td>
-					<td>{{ =concluido.solucao }}</td>
-					<td>{{ =concluido.prazo.strftime("%d/%m/%Y") }}</td>
-					{{ faltando = concluido.prazo - datetime.date.today() }}
-					{{ if  int(faltando.days) == 1: }}
-					<td>{{ ='FALTA %s DIA' %(faltando.days) }}</td>
-					{{ elif int(faltando.days) == -1: }}
-					<td>{{ ='ATRASADO %s DIA' %(faltando.days * -1) }}</td>
-					{{ elif int(faltando.days) == 0: }}
-					<td>HOJE</td>
-					{{ elif int(faltando.days) < -1: }}
-					<td>{{ ='ATRASADO %s DIAS' %(faltando.days * -1) }}</td>
-					{{ else: }}
-					<td>{{ ='FALTAM %s DIAS' %faltando.days }}</td>
+					<td>{{ =concluido.created_on }}</td>
+					<td>{{ =concluido.modified_on }}</td>
+					<td>{{ =concluido.concluido }}</td>
 					{{ pass }}
 				</tr>
 				{{ pass }}
@@ -120,9 +110,63 @@
 
 	<div id="novo_plano" class="row tab-pane fade in">
 		<div class="col-xs-12">
-		{{ =form }}
+		{{=form.custom.begin}}
+			<div class="col-xs-3 col-lg-3">
+				<br />
+				{{form.elements('#plano_depto')[0]['class']='form-control'}}
+				{{form.elements('#plano_depto')[0]}}
+				{{=form.custom.label.depto}}
+				{{=form.custom.widget.depto}}
+				<br />
+				{{form.elements('#plano_titulo')[0]['class']='form-control'}}
+				{{form.elements('#plano_titulo')[0]}}
+				{{=form.custom.label.titulo}}
+				{{=form.custom.widget.titulo}}
+				<br />
+				{{form.elements('#plano_prazo')[0]['class']='form-control'}}
+				{{form.elements('#plano_prazo')[0]['_placeholder']='PRAZO'}}
+				{{=form.custom.label.prazo}}
+				{{=form.custom.widget.prazo}}
+				<br />
+				{{form.elements('#plano_concluido')[0]['class']='form-control'}}
+				{{form.elements('#plano_concluido')[0]['_placeholder']='CONCLUÍDO'}}
+				{{=form.custom.label.concluido}}
+				{{=form.custom.widget.concluido}}
+				<br />
+				{{=form.custom.submit}}	{{=button}}
+			</div>
+			<div class="col-xs-3 col-lg-3">
+			{{form.elements('#plano_descricao')[0]['class']='form-control'}}
+			{{form.elements('#plano_descricao')[0]['_placeholder']='DESCRIÇÃO'}}
+			{{=form.custom.label.descricao}}
+			{{=form.custom.widget.descricao}}
+			</div>
+			<div class="col-xs-3 col-lg-3">
+			{{form.elements('#plano_plano')[0]['class']='form-control'}}
+			{{form.elements('#plano_plano')[0]['_placeholder']='PLANO'}}
+			{{=form.custom.label.plano}}
+			{{=form.custom.widget.plano}}
+			</div>
+			<div class="col-xs-3 col-lg-3">
+			{{form.elements('#plano_acao')[0]['class']='form-control'}}
+			{{form.elements('#plano_acao')[0]['_placeholder']='AÇÃO'}}
+			{{=form.custom.label.acao}}
+			{{=form.custom.widget.acao}}
+			</div>
+
+
+		{{=form.custom.end}}
 		</div>
 	</div>
 </div>
 
 <!-- <a href="{{=URL('novo_plano')}}" class="btn btn-primary">Criar novo plano</a> -->
+
+{{ if valida == 'erro': }}
+<script type="text/javascript">
+	$('#planos').toggleClass("active");
+  	$('#novo_plano').toggleClass("active");
+  	$('#li-planos').toggleClass("active");
+  	$('#li-novo_plano').toggleClass("active");
+ </script>
+{{ pass }}

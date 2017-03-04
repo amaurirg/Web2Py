@@ -10,9 +10,10 @@
 
 
 def index():
+    valida = ''
     # grid = SQLFORM.grid(PLANO)
     # return dict(grid=grid)
-    planos = db(PLANO).select(orderby=db.plano.prazo)
+    planos = db(PLANO.concluido == 'NÃO').select(orderby=db.plano.prazo)
     concluidos = db(PLANO.concluido == 'SIM').select(orderby=db.plano.prazo)
     # print planos
     # print datetime.date.today()
@@ -20,24 +21,39 @@ def index():
 
 
 # def novo_plano():
-    form = SQLFORM(PLANO, _class='form-control', submit_button='Salvar')
+    form = SQLFORM(PLANO, _id='form_novo_plano', submit_button='Salvar')
     if form.process().accepted:
         response.flash = "Salvo com sucesso!"
         redirect(URL('index'))
     elif form.errors:
         response.flash = 'Erros no preenchimento ou campo vazio!'
+        valida = 'erro'
     # else:
     #     response.flash = 'Preencha os campos para salvar ou alterar um plano de ação!'
-    form.add_button('Cancelar', URL('index'), _class='btn btn-primary')
+    # form.add_button('Cancelar', URL('index'), _class='btn btn-primary')
+    button = A('Cancelar', _href='index', _class="btn btn-primary")
     # return dict(form=form)
-    return dict(planos=planos, concluidos=concluidos, form=form)
+    return dict(planos=planos, concluidos=concluidos, form=form, button=button, valida=valida)
+
 
 def editar_plano():
     plano = db(PLANO.id == request.args(0, cast=int)).select().first()
     form = SQLFORM(PLANO, plano)
     if form.process().accepted:
         response.flash = 'Registro alterado com sucesso!'
-        # redirect(URL('categories'))
+    elif form.errors:
+        response.flash = 'Erros no formulário!'
+    # else:
+    #     response.flash = 'Nenhuma alteração foi realizada!'
+    form.add_button('Cancelar', URL('index'), _class='btn btn-primary')
+    return dict(form=form, plano=plano)
+
+
+def ver_concluido():
+    plano = db(PLANO.id == request.args(0, cast=int)).select().first()
+    form = SQLFORM(PLANO, plano)
+    if form.process().accepted:
+        response.flash = 'Registro alterado com sucesso!'
     elif form.errors:
         response.flash = 'Erros no formulário!'
     # else:
@@ -48,6 +64,7 @@ def editar_plano():
 
 def teste():
     return dict()
+
 
 def user():
     """
