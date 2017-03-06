@@ -6,16 +6,47 @@
 	</div>
 </div>
  -->
+
+<h1>Planos de Ação</h1>
+
+
 <ul class="nav nav-tabs">
 	<li id="li-planos" class="active"><a data-toggle="tab" href="#planos">Planos</a></li>
 	<li id="li-concluidos"><a data-toggle="tab" href="#concluidos">Concluídos</a></li>
 	<li id="li-novo_plano"><a data-toggle="tab" href="#novo_plano">Novo Plano</a></li>
 </ul>
 
+<!-- <br />
+	<div id="resposta"></div><br/><br/>
+	<div id="formulario">
+		<form action="">
+			<fieldset>
+				<legend>Formulário</legend>
+				<div>
+					<label for="texto">Texto</label>
+					<input id="texto" type="text"><br/><br/>
+					Selecione
+					<select id="teste" name="paises">
+					  <option value="">Países</option>
+					  <option value="brasil">Brasil</option>
+					  <option value="china">China</option>
+					  <option value="eua">EUA</option>
+					  <option value="japao">Japão</option>
+					</select><br/><br/>
+					Textarea<br/>
+					<textarea name="message" rows="10" cols="30"></textarea><br/><br/>
+					<button id="enviar">Submit</button>
+				</div>
+			</fieldset>
+		</form>
+	</div><br/><br/>
+	<button>Eventos de Teclado</button>	
+<br /><br />
+ -->
 <div class="tab-content">
 	<div id="planos" class="row tab-pane fade in active">
 		<div class="col-xs-12">
-			<table class="tablesorter table table-hover">
+			<table class="table table-hover">
 			<thead>
 				<tr class="active">
 					<th><button type="button" class="btn btn-active btn-sm">Setor 
@@ -36,8 +67,8 @@
 					<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></button></th>
 				</tr>
 			</thead>
-				{{ for plano in planos: }}
 			<tbody>
+				{{ for plano in planos: }}
 				<tr class="link" href="{{=URL('editar_plano', args=plano.id)}}">
 					<td>{{ ='%(setor)s' %(plano.depto) }}</td>
 					<td>{{ ='%(problema)s' %(plano.titulo) }}</td>
@@ -68,7 +99,7 @@
 
 	<div id="concluidos" class="row tab-pane fade in">
 		<div class="col-xs-12">
-			<table class="tablesorter table table-hover">
+			<table class="table table-hover">
 			<thead>
 				<tr class="active">
 					<th><button type="button" class="btn btn-active btn-sm">Setor 
@@ -89,8 +120,8 @@
 					<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></button></th>
 				</tr>
 			</thead>
-				{{ for concluido in concluidos: }}
 			<tbody>
+				{{ for concluido in concluidos: }}
 				<tr class="link" href="{{=URL('ver_concluido', args=concluido.id)}}">
 					<td>{{ ='%(setor)s' %(concluido.depto) }}</td>
 					<td>{{ ='%(problema)s' %(concluido.titulo) }}</td>
@@ -176,11 +207,12 @@
 {{ pass }}
 
 
-<!-- 
-    <script type="text/javascript" src="{{=URL('static','js/jquery-latest.js')}}"></script>
+
+
+<!--     <script type="text/javascript" src="{{=URL('static','js/jquery-latest.js')}}"></script>
     <script type="text/javascript" src="{{=URL('static','js/jquery.tablesorter.min.js')}}"></script>
-
-
+ -->
+<!-- 
 <script type="text/javascript">
     $(document).ready(function() 
         { 

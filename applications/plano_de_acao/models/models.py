@@ -22,3 +22,4 @@ PLANO = db.define_table('plano',
 	format = '%(titulo)s'
 	)
 
+response.logo = A(IMG(_src=URL('static', 'images/logoSiteBest.png'), _href=URL('default', 'index')))

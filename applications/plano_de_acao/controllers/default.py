@@ -8,11 +8,14 @@
 # - download is for downloading files uploaded in the db (does streaming)
 # -------------------------------------------------------------------------
 
-
+@auth.requires_login()
 def index():
-    valida = ''
+    # valida = ''
     # grid = SQLFORM.grid(PLANO)
     # return dict(grid=grid)
+    # print db.plano.fields
+    # filtro = SQLFORM.factory(
+    #     Field( 'filtro', requires=IS_EMPTY_OR(IS_IN_DB(db, 'nome_ramal.id','%(nome)s - %(ramal)s',zero='RAMAL'))))
     planos = db(PLANO.concluido == 'NÃO').select(orderby=db.plano.prazo)
     concluidos = db(PLANO.concluido == 'SIM').select(orderby=db.plano.prazo)
     # print planos
@@ -52,15 +55,15 @@ def editar_plano():
 
 def ver_concluido():
     plano = db(PLANO.id == request.args(0, cast=int)).select().first()
-    form = SQLFORM(PLANO, plano)
+    form = SQLFORM(PLANO, plano, submit_button='Salvar')
     if form.process().accepted:
         response.flash = 'Registro alterado com sucesso!'
     elif form.errors:
         response.flash = 'Erros no formulário!'
     # else:
     #     response.flash = 'Nenhuma alteração foi realizada!'
-    form.add_button('Cancelar', URL('index'), _class='btn btn-primary')
-    return dict(form=form, plano=plano)
+    button = A('Voltar', _href='../', _class="btn btn-primary", _style="margin-left:20px;border-radius: 5px;")
+    return dict(form=form, plano=plano, button=button)
 
 
 def teste():
