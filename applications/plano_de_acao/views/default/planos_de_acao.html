@@ -1,0 +1,230 @@
+{{ extend 'layout.html' }}
+
+<!-- <div class="row">
+	<div class="col-xs-12 col-lg-3">
+		<a href="{{=URL('novo_plano')}}" class="btn btn-primary">Criar novo plano</a><br /><br />
+	</div>
+</div>
+ -->
+
+<h1>Planos de Ação</h1>
+<br>
+
+<ul class="nav nav-tabs">
+	<li id="li-planos" class="active"><a data-toggle="tab" href="#planos">Planos</a></li>
+	<li id="li-concluidos"><a data-toggle="tab" href="#concluidos">Concluídos</a></li>
+	<li id="li-novo_plano"><a data-toggle="tab" href="#novo_plano">Novo Plano</a></li>
+</ul>
+
+<!-- <br />
+	<div id="resposta"></div><br/><br/>
+	<div id="formulario">
+		<form action="">
+			<fieldset>
+				<legend>Formulário</legend>
+				<div>
+					<label for="texto">Texto</label>
+					<input id="texto" type="text"><br/><br/>
+					Selecione
+					<select id="teste" name="paises">
+					  <option value="">Países</option>
+					  <option value="brasil">Brasil</option>
+					  <option value="china">China</option>
+					  <option value="eua">EUA</option>
+					  <option value="japao">Japão</option>
+					</select><br/><br/>
+					Textarea<br/>
+					<textarea name="message" rows="10" cols="30"></textarea><br/><br/>
+					<button id="enviar">Submit</button>
+				</div>
+			</fieldset>
+		</form>
+	</div><br/><br/>
+	<button>Eventos de Teclado</button>	
+<br /><br />
+ -->
+<div class="tab-content">
+	<div id="planos" class="row tab-pane fade in active">
+		<div class="col-xs-12">
+			<table class="table table-hover">
+			<thead>
+				<tr class="active">
+					<th><button type="button" class="btn btn-active btn-sm">Setor 
+					<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></button></th>
+					<th><button type="button" class="btn btn-active btn-sm">Título 
+					<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></button></th>
+					<th><button type="button" class="btn btn-active btn-sm">Descrição  
+					<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></button></th>
+					<th><button type="button" class="btn btn-active btn-sm">Plano 
+					<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></button></th>
+					<th><button type="button" class="btn btn-active btn-sm">Ação 
+					<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></button></th>
+					<th><button type="button" class="btn btn-active btn-sm">Prazo 
+					<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></button></th>
+					<th><button type="button" class="btn btn-active btn-sm">Dias
+					<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></button></th>
+					<th><button type="button" class="btn btn-active btn-sm">Concluído 
+					<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></button></th>
+				</tr>
+			</thead>
+			<tbody>
+				{{ for plano in planos: }}
+				<tr class="link" href="{{=URL('editar_plano', args=plano.id)}}">
+					<td>{{ ='%(setor)s' %(plano.depto) }}</td>
+					<td>{{ ='%(problema)s' %(plano.titulo) }}</td>
+					<td>{{ =plano.descricao }}</td>
+					<td>{{ =plano.plano }}</td>
+					<td>{{ =plano.acao }}</td>
+					<td>{{ =plano.prazo.strftime("%d/%m/%Y") }}</td>
+					{{ faltando = plano.prazo - datetime.date.today() }}
+					{{ if  int(faltando.days) == 1: }}
+					<td>{{ ='FALTA %s DIA' %(faltando.days) }}</td>
+					{{ elif int(faltando.days) == -1: }}
+					<td>{{ ='ATRASADO %s DIA' %(faltando.days * -1) }}</td>
+					{{ elif int(faltando.days) == 0: }}
+					<td>HOJE</td>
+					{{ elif int(faltando.days) < -1: }}
+					<td>{{ ='ATRASADO %s DIAS' %(faltando.days * -1) }}</td>
+					{{ else: }}
+					<td>{{ ='FALTAM %s DIAS' %faltando.days }}</td>
+					{{ pass }}
+					<td>{{ =plano.concluido }}</td>
+				</tr>
+				{{ pass }}
+			</tbody>
+			</table>
+		</div>
+	</div>
+
+
+	<div id="concluidos" class="row tab-pane fade in">
+		<div class="col-xs-12">
+			<table class="table table-hover">
+			<thead>
+				<tr class="active">
+					<th><button type="button" class="btn btn-active btn-sm">Setor 
+					<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></button></th>
+					<th><button type="button" class="btn btn-active btn-sm">Título 
+					<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></button></th>
+					<th><button type="button" class="btn btn-active btn-sm">Descrição  
+					<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></button></th>
+					<th><button type="button" class="btn btn-active btn-sm">Plano 
+					<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></button></th>
+					<th><button type="button" class="btn btn-active btn-sm">Ação 
+					<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></button></th>
+					<th><button type="button" class="btn btn-active btn-sm">Início 
+					<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></button></th>
+					<th><button type="button" class="btn btn-active btn-sm">Término 
+					<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></button></th>
+					<th><button type="button" class="btn btn-active btn-sm">Concluído 
+					<span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span></button></th>
+				</tr>
+			</thead>
+			<tbody>
+				{{ for concluido in concluidos: }}
+				<tr class="link" href="{{=URL('ver_concluido', args=concluido.id)}}">
+					<td>{{ ='%(setor)s' %(concluido.depto) }}</td>
+					<td>{{ ='%(problema)s' %(concluido.titulo) }}</td>
+					<td>{{ =concluido.descricao }}</td>
+					<td>{{ =concluido.plano }}</td>
+					<td>{{ =concluido.acao }}</td>
+					<td>{{ =concluido.created_on }}</td>
+					<td>{{ =concluido.modified_on }}</td>
+					<td>{{ =concluido.concluido }}</td>
+					{{ pass }}
+				</tr>
+				{{ pass }}
+			</tbody>
+			</table>
+		</div>
+	</div>
+
+	<div id="novo_plano" class="row tab-pane fade in">
+		<div class="col-xs-12">
+			{{=form.custom.begin}}
+			<div class="col-xs-3 col-lg-3">
+				<br />
+				{{form.elements('#plano_depto')[0]['class']='form-control'}}
+				{{form.elements('#plano_depto')[0]}}
+				{{=form.custom.label.depto}}
+				{{=form.custom.widget.depto}}
+				<br />
+				{{form.elements('#plano_titulo')[0]['class']='form-control'}}
+				{{form.elements('#plano_titulo')[0]}}
+				{{=form.custom.label.titulo}}
+				{{=form.custom.widget.titulo}}
+				<br />
+				{{form.elements('#plano_prazo')[0]['class']='form-control'}}
+				{{form.elements('#plano_prazo')[0]['_placeholder']='PRAZO'}}
+				{{=form.custom.label.prazo}}
+				{{=form.custom.widget.prazo}}
+				<br />
+				<div class="col-xs-12" style="padding-left: 0px;">
+					<div class="col-xs-4">
+						{{=form.custom.label.concluido}}
+						{{=form.custom.widget.concluido}}
+					</div>
+					<div class="desce col-xs-4">
+						{{form.element(_type='submit')['_style']='border-radius:5px;'}}
+						{{=form.custom.submit}}
+					</div>
+					<div class="desce col-xs-4">
+						{{=button}}
+					</div>
+				</div>
+			</div>
+			<br />
+			<div class="col-xs-3 col-lg-3">
+				{{form.elements('#plano_descricao')[0]['_style']='height: 300px;'}}
+				{{form.elements('#plano_descricao')[0]['class']='form-control'}}
+				{{form.elements('#plano_descricao')[0]['_placeholder']='DESCRIÇÃO'}}
+				{{=form.custom.label.descricao}}
+				{{=form.custom.widget.descricao}}
+			</div>
+			<div class="col-xs-3 col-lg-3">
+				{{form.elements('#plano_plano')[0]['class']='form-control'}}
+				{{form.elements('#plano_plano')[0]['_style']='height: 300px;'}}
+				{{form.elements('#plano_plano')[0]['_placeholder']='PLANO'}}
+				{{=form.custom.label.plano}}
+				{{=form.custom.widget.plano}}
+			</div>
+			<div class="col-xs-3 col-lg-3">
+				{{form.elements('#plano_acao')[0]['class']='form-control'}}
+				{{form.elements('#plano_acao')[0]['_style']='height: 300px;'}}
+				{{form.elements('#plano_acao')[0]['_placeholder']='AÇÃO'}}
+				{{=form.custom.label.acao}}
+				{{=form.custom.widget.acao}}
+			</div>
+
+
+			{{=form.custom.end}}
+		</div>
+	</div>
+</div>
+
+<!-- <a href="{{=URL('novo_plano')}}" class="btn btn-primary">Criar novo plano</a> -->
+
+{{ if form.errors: }}
+<script type="text/javascript">
+	$('#planos').toggleClass("active");
+  	$('#novo_plano').toggleClass("active");
+  	$('#li-planos').toggleClass("active");
+  	$('#li-novo_plano').toggleClass("active");
+ </script>
+{{ pass }}
+
+
+
+
+<!--     <script type="text/javascript" src="{{=URL('static','js/jquery-latest.js')}}"></script>
+    <script type="text/javascript" src="{{=URL('static','js/jquery.tablesorter.min.js')}}"></script>
+ -->
+<!-- 
+<script type="text/javascript">
+    $(document).ready(function() 
+        { 
+            $(".tablesorter").tablesorter(); 
+        } 
+    ); 
+</script>
+ -->

@@ -10,6 +10,10 @@
 
 @auth.requires_login()
 def index():
+    return dict()
+
+
+def planos_de_acao():
     # valida = ''
     # grid = SQLFORM.grid(PLANO)
     # return dict(grid=grid)
@@ -34,7 +38,7 @@ def index():
     # else:
     #     response.flash = 'Preencha os campos para salvar ou alterar um plano de ação!'
     # form.add_button('Cancelar', URL('index'), _class='btn btn-primary')
-    button = A('Cancelar', _href='index', _class="btn btn-primary", _style="margin-left:30px;border-radius: 5px;")
+    button = A('Cancelar', _href='index', _class="btn btn-primary", _style="border-radius: 5px;")
     # return dict(form=form)
     return dict(planos=planos, concluidos=concluidos, form=form, button=button)#, valida=valida)
 
