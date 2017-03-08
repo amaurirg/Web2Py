@@ -70,6 +70,33 @@ def ver_concluido():
     return dict(form=form, plano=plano, button=button)
 
 
+def export_xls():
+    import openpyxl, os     #'''importa openpyxl'''
+    from openpyxl import load_workbook
+    #'''importa funções para converter letras e números'''
+    # from openpyxl.cell import get_column_letter, column_index_from_string
+    
+
+    wb = load_workbook('./applications/plano_de_acao/static/files/PlanoAmauri.xlsx')
+    sheet = wb.get_sheet_by_name('Plano')       #obtém a planilha Plan1
+    sheet = wb['Plano']
+    # anotherSheet = wb.active
+    conteudo = sheet['A9']
+
+    print sheet['B9'].value
+
+    print 'Nome das planilhas: ', wb.get_sheet_names()
+
+    print 'Valor: ', conteudo.value
+    print 'Tamanho máximo de linhas da planilha: ', str(sheet.max_row)
+    print 'Tamanho máximo de colunas da planilha: ', str(sheet.max_column)
+
+    # print os.listdir('./applications/plano_de_acao/static/files')
+
+    return "Leu arquivo xls"
+
+
+
 def teste():
     return dict()
 
