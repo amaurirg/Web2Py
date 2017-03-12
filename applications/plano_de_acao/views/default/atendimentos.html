@@ -1,0 +1,129 @@
+{{ extend 'layout_ui.html' }}
+
+<!-- 
+<div class="ui styled accordion">
+	{{ for plano in planos: }}
+	<div class="title">
+		<i class="dropdown icon"></i>
+		{{ ='%(setor)s' %(plano.depto) }}
+	</div>
+	<div class="content">
+		<p class="transition hidden">{{ =plano.plano }}</p>
+	</div>
+	{{ pass }}
+</div>
+ -->
+
+<!-- ============================================================ -->
+
+<div class="ui styled accordion">
+	<div class="ui four wide grid accordion">
+	    <div class="three wide column">Setor</div>
+		<div class="three wide column">Título</div>
+		<div class="three wide column">Descrição</div>
+	</div>
+	{{ for plano in planos: }}
+	<div class="title">
+	<div class="ui nine wide grid">
+		    <div class="three wide column">{{ ='%(setor)s' %(plano.depto) }}</div>
+			<div class="three wide column">{{ ='%(problema)s' %(plano.titulo) }}</div>
+			<div class="three wide column">{{ =plano.descricao }}</div>
+	</div>
+	</div>
+	<div class="content">
+		<p class="transition hidden">{{ =plano.plano }}</p>
+	</div>
+	
+{{ pass }}
+
+</div>
+
+<!-- ============================================================ -->
+
+<hr>
+
+
+<div class="ui styled accordion">
+<div class="ui equal width grid styled accordion">
+	    <div class="column"><b>Setor</b></div>
+		<div class="column"><b>Título</b></div>
+		<div class="column"><b>Descrição</b></div>
+</div>
+	{{ for plano in planos: }}
+	<div class="title">
+	<div class="ui equal width grid">
+		    <div class="column">{{ ='%(setor)s' %(plano.depto) }}</div>
+			<div class="column">{{ ='%(problema)s' %(plano.titulo) }}</div>
+			<div class="column">{{ =plano.descricao }}</div>
+	</div>
+	</div>
+	<div class="content">
+		<p class="transition hidden">{{ =plano.plano }}</p>
+	</div>
+	
+{{ pass }}
+
+</div>
+
+
+<!-- ============================================================ -->
+
+<hr>
+
+<div class="ui styled accordion">
+	<table class="ui selectable table">
+		<thead>
+			<tr>
+				<th>Setor</th>
+				<th>Título</th>
+				<th>Descrição</th>
+			</tr>
+		</thead>
+		{{ for plano in planos: }}
+		<tbody class="ui title">
+			<tr>
+				<td>{{ ='%(setor)s' %(plano.depto) }}</td>
+				<td>{{ ='%(problema)s' %(plano.titulo) }}</td>
+				<td>{{ =plano.descricao }}</td>
+			</tr>
+		</tbody>
+		<tbody class="ui content">
+			<tr><td rowspan="3" class="transition hidden"></td><td>{{ =plano.plano }}</td></tr>	
+		</tbody>
+		{{ pass }}
+	</table>
+
+</div>
+
+
+<!-- ============================================================ -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ============================================================ -->
+
+<!-- 
+<div class="ui grid">
+<div class="row">
+    <div class="borda three wide column">TESTE 3</div>
+	<div class="borda four wide column">TESTE 4</div>
+	<div class="borda nine wide column">TESTE 5</div>
+</div>
+<div class="row">
+	<div class="borda five wide column">TESTE 6</div>
+	<div class="borda five wide column">TESTE 7</div>
+</div>
+</div>
+ -->

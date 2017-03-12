@@ -70,6 +70,14 @@ def ver_concluido():
     return dict(form=form, plano=plano, button=button)
 
 
+def atendimentos():
+    planos = db(PLANO).select(orderby=db.plano.prazo)
+    return dict(planos=planos)
+
+
+def tabela():
+    return dict()
+
 def export_xls():
     import openpyxl, os     #'''importa openpyxl'''
     from openpyxl import load_workbook

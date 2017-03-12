@@ -8,7 +8,7 @@
 ## - download is for downloading files uploaded in the db (does streaming)
 #########################################################################
 
-# @auth.requires_login()
+@auth.requires_login()
 def index():
     camera = '' 
     if not request.vars.page:

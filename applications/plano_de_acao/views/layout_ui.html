@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>{{ =response.title or ''}}</title>
+	
+	{{include 'web2py_ajax.html'}}
+
+	<!-- JQuery UI -->
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+	<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+	
+	<!-- Semanticu UI em "static" -->
+	<link rel="stylesheet" type="text/css" href="{{=URL('static', 'Semantic-UI-CSS-master/semantic.min.css')}}">
+	<script src="{{=URL('static', 'Semantic-UI-CSS-master/semantic.min.js')}}"></script>
+
+
+
+	<style>
+		.borda{border: 1px solid black;}
+		.ui.accordion tbody.ui.content.active {
+		  display: table-row-group;
+		}
+	</style>
+
+	<!-- scripts javaScript -->
+	<script type="text/javascript">
+		$(function(){
+			$('.ui.accordion').accordion();
+		});
+	</script>
+</head>
+<body>
+	<div class="ui container">
+	  {{block center}}
+	  {{include}}
+	  {{end}}
+	</div>
+</body>
+</html>

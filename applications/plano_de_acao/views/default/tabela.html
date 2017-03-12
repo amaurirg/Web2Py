@@ -1,0 +1,56 @@
+{{ extend 'layout_ui.html' }}
+
+
+<div class="ui styled accordion">
+	<table class="ui selectable table">
+		<thead>
+			<tr>
+				<th>Setor</th>
+				<th>Problema</th>
+			</tr>
+		</thead>
+		<tbody class="ui title">
+			<tr>
+				<td>RH</td>
+				<td>Hardware</td>
+			</tr>
+		</tbody>
+		<tbody class="ui content">
+			<tr>
+				<td>Financeiro</td>
+				<td>Software</td>
+			</tr>
+		</tbody>
+	</table>
+
+</div>
+
+
+
+
+
+<!-- 
+COMO FAZER TABELA COM ACORDION
+
+I was able to fix issues by overriding css. As I wanted to have multiple rows in the details part of the accordion, I used separate tbody for title and content, i. e.:
+
+<table class="ui table accordion">
+  <tbody class="ui title">
+    <tr><td.../></tr>
+  </tbody>
+  <tbody class="ui content">
+    <tr><td.../></tr>
+    <tr.../>
+    <tr><td.../></tr>
+  </tbody>
+</table>
+
+
+then my css file had the following addition:
+
+.ui.accordion tbody.ui.content.active {
+  display: table-row-group;
+}
+and then some padding and border overrides
+
+ -->
