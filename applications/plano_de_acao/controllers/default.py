@@ -8,11 +8,11 @@
 # - download is for downloading files uploaded in the db (does streaming)
 # -------------------------------------------------------------------------
 
-@auth.requires_login()
+# @auth.requires_login()
 def index():
     return dict()
 
-
+# @auth.requires_login()
 def planos_de_acao():
     # valida = ''
     # grid = SQLFORM.grid(PLANO)
@@ -31,46 +31,55 @@ def planos_de_acao():
     form = SQLFORM(PLANO, _id='form_novo_plano', submit_button='Salvar')
     if form.process().accepted:
         response.flash = "Salvo com sucesso!"
-        redirect(URL('index'))
+        redirect(URL('planos_de_acao'))
     elif form.errors:
         response.flash = 'Erros no preenchimento ou campo vazio!'
         # valida = 'erro'
     # else:
     #     response.flash = 'Preencha os campos para salvar ou alterar um plano de ação!'
     # form.add_button('Cancelar', URL('index'), _class='btn btn-primary')
-    button = A('Cancelar', _href='index', _class="btn btn-primary", _style="border-radius: 5px;")
+    button = A('Cancelar', _href='../planos_de_acao', _class="btn btn-primary", _style="border-radius: 5px;")
     # return dict(form=form)
     return dict(planos=planos, concluidos=concluidos, form=form, button=button)#, valida=valida)
 
 
+# @auth.requires_login()
 def editar_plano():
     plano = db(PLANO.id == request.args(0, cast=int)).select().first()
     form = SQLFORM(PLANO, plano, submit_button='Salvar')
     if form.process().accepted:
         response.flash = 'Registro alterado com sucesso!'
-        redirect(URL('index'))
+        redirect(URL('planos_de_acao'))
     elif form.errors:
         response.flash = 'Erros no preenchimento ou campo vazio!'
     # else:
     #     response.flash = 'Nenhuma alteração foi realizada!'
-    button = A('Cancelar', _href='../', _class="btn btn-primary", _style="margin-left:20px;border-radius: 5px;")
+    button = A('Cancelar', _href='../planos_de_acao', _class="btn btn-primary", _style="margin-left:20px;border-radius: 5px;")
     return dict(form=form, plano=plano, button=button)
 
 
+# @auth.requires_login()
 def ver_concluido():
     plano = db(PLANO.id == request.args(0, cast=int)).select().first()
     form = SQLFORM(PLANO, plano, submit_button='Salvar')
     if form.process().accepted:
         response.flash = 'Registro alterado com sucesso!'
+        redirect(URL('planos_de_acao'))
     elif form.errors:
         response.flash = 'Erros no formulário!'
     # else:
     #     response.flash = 'Nenhuma alteração foi realizada!'
-    button = A('Voltar', _href='../', _class="btn btn-primary", _style="margin-left:20px;border-radius: 5px;")
+    button = A('Voltar', _href='../planos_de_acao', _class="btn btn-primary", _style="margin-left:20px;border-radius: 5px;")
     return dict(form=form, plano=plano, button=button)
 
 
+# @auth.requires_login()
 def atendimentos():
+    planos = db(PLANO).select(orderby=db.plano.prazo)
+    return dict(planos=planos)
+
+
+def atendimentos_ui():
     planos = db(PLANO).select(orderby=db.plano.prazo)
     return dict(planos=planos)
 
@@ -78,6 +87,8 @@ def atendimentos():
 def tabela():
     return dict()
 
+
+# @auth.requires_login()
 def export_xls():
     import openpyxl, os     #'''importa openpyxl'''
     from openpyxl import load_workbook

@@ -1,0 +1,107 @@
+<!-- <!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>jQuery UI Accordion - Collapse content</title>
+  <link rel="stylesheet" href="{{=URL('static','jquery-ui-1.12.1.custom/jquery-ui.min.css')}}">
+  <script src="{{=URL('static','js/jquery-3.1.1.js')}}"></script>
+  <script src="{{=URL('static','jquery-ui-1.12.1.custom/jquery-ui.min.js')}}"></script>
+  <script>
+  $( function() {
+    $( "#accordion" ).accordion({
+      collapsible: true
+    });
+  } );
+  </script>
+</head>
+<body> -->
+
+{{ extend 'layout.html' }}
+
+<h1 class="titulo"><b>Atendimentos</b></h1>
+
+<div class="panel man-panel-title" style="margin: 0px;">
+  <div id="colGroup1" role="tab" class="panel-heading">
+      <div class="row">
+      <div class="col-lg-12">
+        <div class="col-lg-3">
+        <h4 class="panel-title">TÍTULO</h4>
+        </div>
+        <div class="col-lg-3">
+          <h4 class="panel-title">TÍTULO</h4>
+        </div>
+        <div class="col-lg-3">
+          <h4 class="panel-title">TÍTULO</h4>
+        </div>
+        <div class="col-lg-3">
+          <h4 class="panel-title">TÍTULO</h4>
+        </div>
+      </div>
+      </div>
+  </div>
+</div>
+
+<div class="panel panel-default">
+    <div id="colGroup1" role="tab" class="panel-heading">
+        <h4 class="panel-title">
+            <a href="#colListGroup1" aria-controls="colListGroup1" aria-expanded="false" data-toggle="collapse">
+                Gerenciar Posts
+            </a>
+        </h4>
+    </div>
+    <div role="tabpanel" class="panel-collapse collapse" id="colListGroup1" aria-expanded="false">
+        <ul class="list-group">
+            <li class="list-group-item"><a href="#">Criar novo post</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Panel title</h3>
+  </div>
+  <div class="panel-body">
+    Panel content
+  </div>
+</div>
+
+  <h2>Simple Collapsible</h2>
+  <p>Click on the button to toggle between showing and hiding content.</p>
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo">Simple collapsible</button>
+  <div id="demo" class="collapse">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+  </div>
+
+ 
+<div id="accordion">
+  
+  <div data-toggle="collapse" data-target="#demo2"><h3>Section 1</h3></div>
+  <div id="demo2" class="collapse">
+    <p>Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.</p>
+  </div>
+  <h3>Section 2</h3>
+  <div>
+    <p>Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In suscipit faucibus urna. </p>
+  </div>
+  <h3>Section 3</h3>
+  <div>
+    <p>Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis. Phasellus pellentesque purus in massa. Aenean in pede. Phasellus ac libero ac tellus pellentesque semper. Sed ac felis. Sed commodo, magna quis lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui. </p>
+    <ul>
+      <li>List item one</li>
+      <li>List item two</li>
+      <li>List item three</li>
+    </ul>
+  </div>
+  <h3>Section 4</h3>
+  <div>
+    <p>Cras dictum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia mauris vel est. </p><p>Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. </p>
+  </div>
+</div>
+ 
+<!--  
+</body>
+</html>
+ -->

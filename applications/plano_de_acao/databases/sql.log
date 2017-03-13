@@ -103,3 +103,36 @@ CREATE TABLE plano(
     modified_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  
 );
 success!
+timestamp: 2017-03-12T22:05:59.790281
+CREATE TABLE atendimentos(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    dataa DATE NOT NULL DEFAULT '2017-03-12',
+    cliente CHAR(512) NOT NULL,
+    contato CHAR(512) NOT NULL,
+    detalhes CHAR(512) NOT NULL,
+    status CHAR(512) NOT NULL,
+    is_active CHAR(1),
+    created_on TIMESTAMP,
+    created_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ,
+    modified_on TIMESTAMP,
+    modified_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  
+);
+success!
+timestamp: 2017-03-12T22:06:14.589136
+ALTER TABLE atendimentos ADD data_atend DATE NOT NULL DEFAULT '2017-03-12';
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!
+success!

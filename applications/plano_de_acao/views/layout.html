@@ -34,7 +34,11 @@
     <script type="text/javascript" src="{{=URL('static','js/jquery-latest.js')}}"></script>
     <script type="text/javascript" src="{{=URL('static','js/jquery.tablesorter.min.js')}}"></script>
 
-    <script type="text/javascript">
+    <link rel="stylesheet" href="{{=URL('static','jquery-ui-1.12.1.custom/jquery-ui.min.css')}}">
+    <script src="{{=URL('static','js/jquery-3.1.1.js')}}"></script>
+    <script src="{{=URL('static','jquery-ui-1.12.1.custom/jquery-ui.min.js')}}"></script>
+
+<!--     <script type="text/javascript">
     $(document).ready(function() 
         { 
             $(".table").tablesorter(); 
@@ -45,26 +49,11 @@
         } 
 
     ); 
-    </script>
+    </script> -->
     
-    
-    <style>
-      .imagem-index{text-align: center; padding-top: 40px;}
-      .fonte{font-size: 20px; padding: 22px; margin: 0px 80px;}
-      .fonte li{padding-left: 35px; list-style-type: none;}
-      .fonte a:hover{color: #274264;}
-      .fonte a{text-decoration: none;}
-      .cor-icon-nav{color: #309EF5;}
-      .bem-vindo{padding-top: 6px; font-size: 14px;}
-      th, td{cursor: pointer;}
-      #logoBest{padding: 8px;}
-      .cor{background-color: #D7D9E2;}
-      .desce{padding-top: 20px;}
-      .titulo{color: #309EF5;}
-    </style>
-
     <script type="text/javascript">
     $(document).ready(function(){
+        $(".table").tablesorter(); 
         $('.link').click(function(){
             window.location = $(this).attr('href');
             return false;
@@ -76,6 +65,25 @@
     });
     </script>
 
+    <style>
+      body{background: url("../static/images/foil.png");}
+      .imagem-index{text-align: center; padding-top: 40px;}
+      .fonte{font-size: 20px; padding: 22px; margin: 0px 80px;}
+      .fonte li{padding-left: 35px; list-style-type: none;}
+      .fonte a:hover{color: #274264;}
+      .fonte a{text-decoration: none;}
+      .cor-icon-nav{color: #309EF5;}
+      .bem-vindo{padding-top: 6px; font-size: 14px;}
+      th, td{cursor: pointer; background-color: white;}
+      .row-link{cursor: pointer;}
+      #logoBest{padding: 8px;}
+      .cor{background-color: #D7D9E2;}
+      .desce{padding-top: 20px;}
+      .titulo{color: #274264;}
+      /*#accordion{border: 1px solid blue;}*/
+      .panel-title a{text-decoration: none;}
+      .man-panel-title{background-color: #274264;}
+    </style>
 
     <!--[if lt IE 9]>
         <script src="{{=URL('static','js/respond-1.4.2.min.js')}}"></script>
@@ -118,7 +126,7 @@
           </ul>
           <ul class="navbar-nav fonte">
             <li class="active"><span class="cor-icon-nav"><img src="{{=URL('static', 'images/glyphicons-30-notes-2-azul-escuro.png')}}" alt=""></span><a href="{{=URL('planos_de_acao')}}"> Planos de Ação</a></li>
-            <li><span class="cor-icon-nav"><img src="{{=URL('static', 'images/glyphicons-78-headset-azul-escuro.png')}}" alt=""></span><a href="#"> Atendimentos</a></li>
+            <li><span class="cor-icon-nav"><img src="{{=URL('static', 'images/glyphicons-78-headset-azul-escuro.png')}}" alt=""></span><a href="{{=URL('atendimentos')}}"> Atendimentos</a></li>
             <li><span class="cor-icon-nav"><img src="{{=URL('static', 'images/glyphicons-45-keys-azul-escuro.png')}}" alt=""></span><a href="#"> Licenças</a></li>
             <!-- <li><a href="#">Em Breve</a></li> -->
           </ul>

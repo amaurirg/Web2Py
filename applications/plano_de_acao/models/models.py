@@ -22,4 +22,17 @@ PLANO = db.define_table('plano',
 	format = '%(titulo)s'
 	)
 
+
+ATEND = db.define_table('atendimentos',
+	# Field('data_atend', 'date', notnull=True, default=datetime.date.today(), label="Data"),
+	Field('cliente', notnull=True, label="Cliente"),
+	Field('contato', notnull=True, label="Contato"),
+	Field('detalhes', notnull=True, label="Detalhes do Atendimento"),
+	Field('status', notnull=True, label="Status"),
+	auth.signature,
+	format = '%(cliente)s'
+	)
+
+
+
 response.logo = A(IMG(_src=URL('static', 'images/logoSiteBest.png'), _href=URL('default', 'index')))
