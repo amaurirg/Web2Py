@@ -5,3 +5,5 @@ PLANO.prazo.requires = IS_EMPTY_OR(IS_DATE(format=T('%d/%m/%Y'), error_message='
 PLANO.concluido.requires = IS_IN_SET(['NÃO', 'SIM'])
 
 DEP.setor.requires = IS_NOT_EMPTY()
+
+# ATEND.status.requires = IS_IN_DB(db,'status_atend.status', '%(status)s', zero = 'Setor')

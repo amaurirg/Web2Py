@@ -23,12 +23,18 @@ PLANO = db.define_table('plano',
 	)
 
 
+STATEND = db.define_table('status_atend',
+	Field('status'),
+	format = '%(status)s'
+	)
+
+
 ATEND = db.define_table('atendimentos',
 	# Field('data_atend', 'date', notnull=True, default=datetime.date.today(), label="Data"),
 	Field('cliente', notnull=True, label="Cliente"),
 	Field('contato', notnull=True, label="Contato"),
 	Field('detalhes', notnull=True, label="Detalhes do Atendimento"),
-	Field('status', notnull=True, label="Status"),
+	Field('status', 'reference status_atend', notnull=True, label="Status"),
 	auth.signature,
 	format = '%(cliente)s'
 	)

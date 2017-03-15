@@ -75,18 +75,93 @@ def ver_concluido():
 
 # @auth.requires_login()
 def atendimentos():
-    planos = db(PLANO).select(orderby=db.plano.prazo)
-    return dict(planos=planos)
+    atendimentos = db(ATEND).select(orderby=db.atendimentos.created_on)
+    em_atendimento = db(db.status_atend.status!='CONCLUÍDO').select(join=db.atendimentos.on(
+        db.status_atend.id == db.atendimentos.status), orderby=db.atendimentos.created_on)
 
+    # em_atendimento = db(db.status_atend.status!='CONCLUÍDO').select(
+    #     ATEND.created_on, ATEND.cliente, ATEND.contato, ATEND.status,join=db.atendimentos.on(
+    #     db.status_atend.id == db.atendimentos.status), orderby=db.atendimentos.created_on)
+
+    atend_conc = db(db.status_atend.status=='CONCLUÍDO').select(join=db.atendimentos.on(
+        db.status_atend.id == db.atendimentos.status), orderby=db.atendimentos.created_on)
+    # print em_atendimento
+    # banco(banco.carros.id>0).count()
+    
+    # cont_em_atendimento = db(db.status_atend.status=='EM ATENDIMENTO').select(join=db.atendimentos.on(
+    #     db.status_atend.id == db.atendimentos.status))
+    # cont_aguardando = db(db.status_atend.status=='AGUARDANDO').select(db.atendimentos.status,join=db.atendimentos.on(
+    #     db.status_atend.id == db.atendimentos.status))
+    # cont_entrar_em_contato = db(db.status_atend.status=='ENTRAR EM CONTATO').select(join=db.atendimentos.on(
+    #     db.status_atend.id == db.atendimentos.status))
+    # cont_concluido = db(db.status_atend.status=='CONCLUÍDO').select(join=db.atendimentos.on(
+    #     db.status_atend.id == db.atendimentos.status))
+
+    # for row in cont_aguardando:
+    #     print row.status_atend.status
+    # cont_aguardando = db(ATEND.status=='3').count()
+    # print cont_aguardando
+    # print em_atendimento
+    count = ATEND.id.count()
+    # print count
+    dados = db(ATEND).select(
+        ATEND.status, count, groupby=(ATEND.status))
+    return dados
+    lista = []
+    for dado in dados:
+        lista.append([dado.atendimentos.status,dado[count]])
+# groupby=(db.camisetas.tipo, db.camisetas.tamanho)
+    print lista
+
+    return dict(atendimentos=atendimentos, atend_conc=atend_conc, em_atendimento=em_atendimento, dados=dados)
+                # cont_em_atendimento=cont_em_atendimento, cont_aguardando=cont_aguardando, 
+                # cont_entrar_em_contato=cont_entrar_em_contato, cont_concluido=cont_concluido)
+
+"""
+                      <li class="li-info" role="presentation" class="cor">Em atendimento <span class="badge cor-badge">
+                      {{ =cont_em_atendimento.status_atend.status }}</span></li>
+                      <li class="li-info" role="presentation" class="cor">Aguardando <span class="badge cor-badge">
+                      {{ =cont_aguardando.status_atend.status }}</span></li>
+                      <li class="li-info" role="presentation" class="cor">Entrar em contato <span class="badge cor-badge">
+                      {{ =cont_entrar_em_contato.status_atend.status }}</span></li>
+"""
 
 def atendimentos_ui():
     planos = db(PLANO).select(orderby=db.plano.prazo)
     return dict(planos=planos)
 
 
+def layoutit():
+    return dict()
+
 def tabela():
     return dict()
 
+
+"""
+
+>>> db.define_table('person',
+                    Field('name'),
+                    format='%(name)s')
+
+>>> db.define_table('thing',
+                    Field('name'),
+                    Field('owner_id', 'reference person'),
+                    format='%(name)s')
+
+rows = db(db.person).select(join=db.thing.on(db.person.id == db.thing.owner_id))                    
+"""
+
+
+
+def test():
+    # row = db(db.status_atend.id == db.atendimentos.status).select()
+    rows = db(db.status_atend.status=='CONCLUÍDO').select(join=db.atendimentos.on(
+        db.status_atend.id == db.atendimentos.status), orderby=db.atendimentos.created_on)
+    for row in rows:
+        # print row.cliente
+        print row.status_atend.status
+    return dict(rows=rows)
 
 # @auth.requires_login()
 def export_xls():
