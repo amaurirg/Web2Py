@@ -1,0 +1,40 @@
+{{extend 'layout.html'}}
+
+Body da Página.
+{{
+x = 1
+}}
+{{=x}}
+{{
+y = x+1
+}}
+{{=y}}
+
+<h1>Lista</h1>
+<ul>
+	{{for i in range(10):}}
+	<li>Item {{=i}}</li>
+	{{pass}}
+</ul>
+
+{{if request.is_local:}}
+<b>Estou em localhost</b>
+{{pass}}
+
+<button class="btn btn-success">Enviar teste</button>
+<b class="btn btn-success">Enviar teste</b>
+<img src={{=URL('static','images/twitter.png')}}>
+
+{{block my_side}}
+{{super}}
+View teste
+{{end}}
+
+{{=button}}
+
+{{=form}}
+
+<form>
+<input type='text'>
+<input type='submit'>
+</form>

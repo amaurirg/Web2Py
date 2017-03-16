@@ -1,0 +1,9 @@
+{{extend 'layout.html'}}
+
+{{=form.custom.begin}}
+    {{form.elements('#auth_user_email')[0]['_class']='input-small'}}
+    {{=form.custom.widget.email}}
+    {{form.elements('#auth_user_password')[0]['_class']='input-small'}}
+    {{=form.custom.widget.password}}
+    {{=form.custom.submit}}
+{{=form.custom.end}}

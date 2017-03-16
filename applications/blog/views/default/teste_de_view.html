@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>Página de Teste</title>
+<link rel="stylesheet" href={{=URL('static', 'css/bootstrap.min.css')}}>
+</head>
+
+<body>
+Body da Página.
+{{
+x = 1
+}}
+{{=x}}
+{{
+y = x+1
+}}
+{{=y}}
+
+<h1>Lista</h1>
+<ul>
+	{{for i in range(10):}}
+	<li>Item {{=i}}</li>
+	{{pass}}
+</ul>
+
+<table class="table">
+<tr>
+  <td>Teste1</td>
+  <td>Teste2</td>	
+ </tr>
+</table>
+
+{{if request.is_local:}}
+<b>Estou em localhost</b>
+{{pass}}
+
+<button class="btn btn-success">Enviar teste</button>
+<img src={{=URL('static','images/twitter.png')}}>
+</body>
+
+</html>

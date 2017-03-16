@@ -1,0 +1,63 @@
+{{extend 'layout_principal.html'}}
+
+
+<body class="right-sidebar">
+<!-- Main -->
+<div id="main-wrapper">
+    <div class="container">
+        <div class="row">            
+            <div class="8u">
+              {{for post in posts:}}
+                <!-- Content -->
+                                <article class="box post">
+                                    <a href="#" class="image featured">
+                                        <img src="url_da_imagem" alt="" />
+                                    </a>
+                                    <header>
+                                        <h3>{{=post.title}}</h3>
+                                        <p>{{=prettydate(post.created_on, T)}}</p>
+                                    </header>
+                                    <p>{{=post.body[:580]}}...</p>
+                                    <footer>
+                                        <ul class="actions">
+                                            <li><a href="{{=URL('post', args=post.id)}}" class="button icon fa-file-text">Saiba mais</a></li>
+                                            <li><a href="#" class="button alt icon fa-comment">1 comentário</a></li>
+                                        </ul>
+                                    </footer>
+                                </article>
+            {{pass}}
+            </div>
+            
+            <div class="4u">
+
+                <!-- Sidebar -->
+                    <section class="box">
+                        <header>
+                            <h3>Sobre o blog</h3>
+                        </header>
+                        <p>Vista tamanha opressão da Rainha Cersei e em apoio aos demais reis que lutam contra o exército de Tywin, venho aqui declarar a revolta do povo.</p>
+                    </section>
+                    <section class="box">
+                        <header>
+                            <h3>Categorias</h3>
+                        </header>
+                        <ul class="divided">
+                          {{for category in categories:}}
+                            <li><a href="{{=URL('categories', vars={'page':int(request.vars.page)})}}">{{=category.name}}</a></li>
+                          {{pass}}
+                        </ul>
+                    </section>
+
+            </div>
+        </div>
+        
+        <div class="row">
+            <center>
+            {{if not int(request.vars.page)<=1:}}<a href="{{=URL('index', vars={'page':int(request.vars.page)-1})}}" class="button alt">Anterior</a>{{pass}}
+            {{if not int(request.vars.page)*10 >= db(Posts).count():}}<a href="{{=URL('index', vars={'page':int(request.vars.page)+1})}}" class="button">Próxima</a>{{pass}}
+            </center>
+        </div>
+    </div>
+</div>
+{{include 'default/footer.html'}}
+</body>

@@ -30,7 +30,7 @@ REC = db.define_table('recepcao',
 	Field('obs', 'text', notnull=False, label='Observações'),
 	Field('msg', 'text', notnull=False, label ='Mensagem'),
 	Field('env', 'reference env_email', ondelete='SET NULL', label='Enviar email?'),
-	auth.signature,
+	# auth.signature,
 	format = '%(nome)s'
 	)
 #db.recepcao.env.widget = SQLFORM.widgets.date.widget

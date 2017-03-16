@@ -32,6 +32,7 @@ def planos_de_acao():
     if form.process().accepted:
         response.flash = "Salvo com sucesso!"
         redirect(URL('planos_de_acao'))
+        print form.vars.titulo
     elif form.errors:
         response.flash = 'Erros no preenchimento ou campo vazio!'
         # valida = 'erro'
@@ -104,15 +105,14 @@ def atendimentos():
     # print em_atendimento
     count = ATEND.id.count()
     # print count
-    dados = db(ATEND).select(
-        ATEND.status, count, groupby=(ATEND.status))
-    return dados
-    lista = []
-    for dado in dados:
-        lista.append([dado.atendimentos.status,dado[count]])
-# groupby=(db.camisetas.tipo, db.camisetas.tamanho)
-    print lista
+    dados = db(STATEND).select(
+        ATEND.status, count, join=db.atendimentos.on(
+        db.status_atend.id == db.atendimentos.status), groupby=(ATEND.status))
+    # return dados
 
+
+    
+    # print dados
     return dict(atendimentos=atendimentos, atend_conc=atend_conc, em_atendimento=em_atendimento, dados=dados)
                 # cont_em_atendimento=cont_em_atendimento, cont_aguardando=cont_aguardando, 
                 # cont_entrar_em_contato=cont_entrar_em_contato, cont_concluido=cont_concluido)

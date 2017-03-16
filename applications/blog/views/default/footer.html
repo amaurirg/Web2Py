@@ -1,0 +1,92 @@
+<!-- Footer -->
+<div id="footer-wrapper">
+    <section id="footer" class="container">
+        <div class="row">
+            <div class="8u">
+                <section>
+                    <header>
+                        <h2>Últimos posts</h2>
+                    </header>
+                    {{for post in latest_posts:}}
+                    <ul class="dates">
+                        <li>
+                            <span class="date">{{=post.created_on.strftime('%B')[:3]}}
+                                <strong>{{=post.created_on.day}}</strong></span>
+                            <h3><a href="post.html">{{=post.title}}</a></h3>
+                            <p>{{=post.body[:80]}}...</p>
+                        </li>
+                    </ul>
+                    {{pass}}
+                </section>
+            </div>
+            <div class="4u">
+                <section>
+                    <header>
+                        <h2>Sobre o blog</h2>
+                    </header>
+                    <p>Vista tamanha opressão da Rainha Cersei e em apoio aos demais reis que lutam contra o exército de Tywin, venho aqui declarar a revolta do povo.</p>
+                </section>
+            </div>
+        </div>
+        <div class="row">
+            <div class="4u">
+                <section>
+                    <header>
+                        <h2>Categorias</h2>
+                    </header>
+                    <ul class="divided">
+                        {{for category in categories:}}
+                        <li><a href="#">{{=category.name}}</a></li>
+                        {{pass}}
+                    </ul>
+                </section>
+            </div>
+            <div class="4u">
+                <section>
+                    <header>
+                        <h2>Mais curtidos</h2>
+                    </header>
+                    <ul class="divided">
+                        {{for post in most_liked:}}
+                        <li><a href="{{=URL('post', args=post.id)}}">{{=post.title}}</a></li>
+                    {{pass}}
+                    </ul>
+                </section>
+            </div>
+            <div class="4u">
+                <section>
+                    <header>
+                        <h2>Corvo-Correio</h2>
+                    </header>
+                    <ul class="contact">
+                        <li>
+                            <h3>Endereço</h3>
+                            <p>
+                                Blogeiro dos Reinos<br />
+                                Baixada das Pulgas<br />
+                                King's Landing
+                            </p>
+                        </li>
+                        <li>
+                            <h3>Email</h3>
+                            <p><a href="#">knowsnothing@gmail.com</a></p>
+                            Envie suas mensagens por corvo!
+                        </li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+        <div class="row">
+            <div class="12u">
+
+                <!-- Copyright -->
+                    <div id="copyright">
+                        <ul class="links">
+                            <li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                        </ul>
+                    </div>
+
+            </div>
+        </div>
+    </section>
+</div>
