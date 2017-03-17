@@ -14,34 +14,24 @@ def index():
 
 # @auth.requires_login()
 def planos_de_acao():
-    # valida = ''
-    # grid = SQLFORM.grid(PLANO)
-    # return dict(grid=grid)
-    # print db.plano.fields
-    # filtro = SQLFORM.factory(
-    #     Field( 'filtro', requires=IS_EMPTY_OR(IS_IN_DB(db, 'nome_ramal.id','%(nome)s - %(ramal)s',zero='RAMAL'))))
+    # print db._lastsql
     planos = db(PLANO.concluido == 'NÃO').select(orderby=db.plano.prazo)
+    # print db._lastsql
     concluidos = db(PLANO.concluido == 'SIM').select(orderby=db.plano.prazo)
     # print planos
-    # print datetime.date.today()
-    # return dict(planos=planos, concluidos=concluidos)
-
-
-# def novo_plano():
     form = SQLFORM(PLANO, _id='form_novo_plano', submit_button='Salvar')
     if form.process().accepted:
         response.flash = "Salvo com sucesso!"
+        print db._lastsql
         redirect(URL('planos_de_acao'))
         print form.vars.titulo
     elif form.errors:
         response.flash = 'Erros no preenchimento ou campo vazio!'
-        # valida = 'erro'
     # else:
     #     response.flash = 'Preencha os campos para salvar ou alterar um plano de ação!'
     # form.add_button('Cancelar', URL('index'), _class='btn btn-primary')
     button = A('Cancelar', _href='../planos_de_acao', _class="btn btn-primary", _style="border-radius: 5px;")
-    # return dict(form=form)
-    return dict(planos=planos, concluidos=concluidos, form=form, button=button)#, valida=valida)
+    return dict(planos=planos, concluidos=concluidos, form=form, button=button)
 
 
 # @auth.requires_login()
@@ -86,18 +76,6 @@ def atendimentos():
 
     atend_conc = db(db.status_atend.status=='CONCLUÍDO').select(join=db.atendimentos.on(
         db.status_atend.id == db.atendimentos.status), orderby=db.atendimentos.created_on)
-    # print em_atendimento
-    # banco(banco.carros.id>0).count()
-    
-    # cont_em_atendimento = db(db.status_atend.status=='EM ATENDIMENTO').select(join=db.atendimentos.on(
-    #     db.status_atend.id == db.atendimentos.status))
-    # cont_aguardando = db(db.status_atend.status=='AGUARDANDO').select(db.atendimentos.status,join=db.atendimentos.on(
-    #     db.status_atend.id == db.atendimentos.status))
-    # cont_entrar_em_contato = db(db.status_atend.status=='ENTRAR EM CONTATO').select(join=db.atendimentos.on(
-    #     db.status_atend.id == db.atendimentos.status))
-    # cont_concluido = db(db.status_atend.status=='CONCLUÍDO').select(join=db.atendimentos.on(
-    #     db.status_atend.id == db.atendimentos.status))
-
     # for row in cont_aguardando:
     #     print row.status_atend.status
     # cont_aguardando = db(ATEND.status=='3').count()
@@ -108,10 +86,10 @@ def atendimentos():
     dados = db(STATEND).select(
         ATEND.status, count, join=db.atendimentos.on(
         db.status_atend.id == db.atendimentos.status), groupby=(ATEND.status))
+    lista = dados.as_list()
+    print lista[0]['atendimentos']['status']
+    print dados
     # return dados
-
-
-    
     # print dados
     return dict(atendimentos=atendimentos, atend_conc=atend_conc, em_atendimento=em_atendimento, dados=dados)
                 # cont_em_atendimento=cont_em_atendimento, cont_aguardando=cont_aguardando, 
@@ -125,6 +103,14 @@ def atendimentos():
                       <li class="li-info" role="presentation" class="cor">Entrar em contato <span class="badge cor-badge">
                       {{ =cont_entrar_em_contato.status_atend.status }}</span></li>
 """
+
+
+def novo_atend():
+    form1 = SQLFORM(PLANO)
+    if form.process().accepted:
+        print request.vars.depto
+
+    return dict(form1=form1)
 
 def atendimentos_ui():
     planos = db(PLANO).select(orderby=db.plano.prazo)

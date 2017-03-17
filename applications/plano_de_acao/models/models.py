@@ -1,7 +1,7 @@
 DEP = db.define_table('departamento',
 	Field('setor'),
-	# format = '%(setor)s'
-	format=lambda r: r.setor or 'anonymous'
+	format = '%(setor)s'
+	# format=lambda r: r.setor or 'anonymous'
 	)
 
 PROB = db.define_table('problemas',

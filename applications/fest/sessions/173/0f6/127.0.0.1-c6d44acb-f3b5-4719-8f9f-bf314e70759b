@@ -1,7 +1,7 @@
 €cgluon.globals
 Session
-q}q(Ulast_orderbyqNU
-last_queryqUdb.recepcao.status==1qU_user_agentqcgluon.storage
+q}q(U
+last_queryqUdb.recepcao.status==1qU_user_agentqcgluon.storage
 Storage
-q}q(U	is_mobileq	‰U	is_tabletq
-‰Uosqh}qUnameqULinuxqs…RqUbrowserqh}q(UversionqU56.0.2924.87qhUChromequ…Rqu…RqU_formkey[recepcao/create]q]q(U$e0829ca8-f6a8-49c3-8ddd-202107b5a5f4qU$d9f0efaf-db31-437d-a856-115817d7fe30qU$ae5f39a0-b681-4e2f-8bbc-412f11248237qeU_formkey[default]q]q(U$99955cc4-9488-4567-aef5-6201dd80db05qU$35fbf97d-db86-4b16-a21e-7f6425ace34fqU$81c08653-b961-4b1b-9410-0efa1fe69760q U$fd528754-1054-4686-8f67-13ba15668f54q!U$87cc93b4-8cbd-46c5-ab64-30f7d158bdc6q"U$a9091c82-7e6e-444c-bd83-925189a8a035q#U$5fe61bb7-12b1-4b3b-a514-ba69dc7e1047q$U$8973adde-f09e-4e7d-8d42-4d830e6839bcq%eU_formkey[lista_status/1]q&]q'U$2f0332d9-a32b-415d-8429-08ce049c7f55q(aU_formkey[recepcao/1]q)]q*U$28a2d83b-b228-4a28-8284-e86ea8538bd7q+au…Rq,.
+q}q(U	is_mobileq‰U	is_tabletq	‰Uosq
+h}qUnameqULinuxqs…RqUbrowserqh}q(UversionqU56.0.2924.87qhUChromequ…Rqu…RqU_formkey[lista_status/1]q]qU$2f0332d9-a32b-415d-8429-08ce049c7f55qaU_formkey[recepcao/create]q]q(U$e0829ca8-f6a8-49c3-8ddd-202107b5a5f4qU$d9f0efaf-db31-437d-a856-115817d7fe30qU$ae5f39a0-b681-4e2f-8bbc-412f11248237qU$a4fce989-ab46-490f-b2f7-92ed2c806fd0qeU_formkey[recepcao/1]q]q U$28a2d83b-b228-4a28-8284-e86ea8538bd7q!aUlast_orderbyq"NU_formkey[no_table/create]q#]q$U$3e8a92f1-252e-46a7-a6a0-0fadb40a4de4q%aU_formkey[default]q&]q'(U$99955cc4-9488-4567-aef5-6201dd80db05q(U$35fbf97d-db86-4b16-a21e-7f6425ace34fq)U$81c08653-b961-4b1b-9410-0efa1fe69760q*U$fd528754-1054-4686-8f67-13ba15668f54q+U$87cc93b4-8cbd-46c5-ab64-30f7d158bdc6q,U$a9091c82-7e6e-444c-bd83-925189a8a035q-U$5fe61bb7-12b1-4b3b-a514-ba69dc7e1047q.U$8973adde-f09e-4e7d-8d42-4d830e6839bcq/eu…Rq0.
