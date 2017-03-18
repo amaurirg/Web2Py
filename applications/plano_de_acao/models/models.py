@@ -35,7 +35,8 @@ ATEND = db.define_table('atendimentos',
 	Field('cliente', notnull=True, label="Cliente"),
 	Field('contato', notnull=True, label="Contato"),
 	Field('detalhes', notnull=True, label="Detalhes do Atendimento"),
-	Field('status', 'reference status_atend', notnull=True, label="Status"),
+	Field('status', 'reference status_atend', requires=IS_IN_DB(db,db.status_atend.id, '%(status)s'),
+		notnull=False, label="Status"),
 	auth.signature,
 	format = '%(cliente)s'
 	)

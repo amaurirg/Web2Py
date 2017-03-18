@@ -72,3 +72,7 @@ CREATE TABLE nome_sigla_cidade(
     sigla_cid CHAR(512)
 );
 success!
+success!
+success!
+success!
+success!

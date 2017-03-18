@@ -6,4 +6,6 @@ PLANO.concluido.requires = IS_IN_SET(['NÃO', 'SIM'])
 
 DEP.setor.requires = IS_NOT_EMPTY()
 
-ATEND.status.requires = IS_IN_DB(db,'status_atend.id', '%(status)s', zero = 'Status')
+ATEND.status.requires = IS_IN_DB(db,db.status_atend.id, '%(status)s', zero = 'Status')
+
+#IS_UPPER()

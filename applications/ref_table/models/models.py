@@ -9,7 +9,10 @@ NC = db.define_table('nome_cidade',
 	)
 
 SCNC = db.define_table('nome_sigla_cidade',
-	Field('nome_cid'),
-	Field('sigla_cid'),
+	Field('sigla_cid', 'reference sigla_cidade'),
+	Field('nome_cid', 'reference nome_cidade'),
 	format = '%(nome_cid)s - %(sigla_cid)s'
 	)
+
+
+

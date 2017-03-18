@@ -9,15 +9,21 @@
 # -------------------------------------------------------------------------
 
 # gato    =   db.gatos.insert(nome=”Sr.   Pelinhos”,  raca=”Sphynx”)
-
+# rows = db(query).select()
+# >>> rows_list = rows.as_list()
 def index():
-    form = SQLFORM.factory(
-        Field('sig', requires = IS_IN_DB(db, 'sigla_cidade.id', '%(sigla)s')),
-        Field('nom', requires = IS_IN_DB(db, 'nome_cidade.id', '%(nome)s')))
-    # form_nome_sigla = SQLFORM(SCNC)
+    # siglas = db(SC).select()
+    # lista = [sig.sigla for sig in siglas]
+    # lista = [sig.sigla for sig in db(SC).select()]
+    # form = SQLFORM.factory(
+    #     Field('sig', requires = IS_IN_DB(db, 'sigla_cidade.id', '%(sigla)s')),
+    #     # Field('sig', requires = IS_IN_SET([sig.sigla for sig in db(SC).select(SC.sigla)])),
+    #     Field('nom', requires = IS_IN_DB(db, 'nome_cidade.id', '%(nome)s')))
+    form = SQLFORM(SCNC)
     if form.process().accepted:
-        print request.vars.sig, request.vars.nom
-        SCNC.insert(nome_cid=request.vars.sig, sigla_cid=request.vars.nom)
+        response.flash = 'Salvo'
+        print 'request.vars.sig', request.vars.sigla_cid, form.vars.nome_cid
+        # SCNC.insert(nome_cid=request.vars.sig, sigla_cid=request.vars.nom)
     else:
         response.flash = 'ERRO'
     return dict(form=form)

@@ -164,6 +164,7 @@
 'This is a copy of the scaffolding application': 'Isto é uma cópia da aplicação modelo',
 'Time in Cache (h:m:s)': 'Tempo em Cache (h:m:s)',
 'Timestamp': 'Timestamp',
+'Traceback': 'Traceback',
 'Twitter': 'Twitter',
 'unable to parse csv file': 'não foi possível analisar arquivo csv',
 'Update:': 'Atualizar:',
