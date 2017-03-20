@@ -76,3 +76,13 @@ success!
 success!
 success!
 success!
+timestamp: 2017-03-18T11:30:25.027324
+CREATE TABLE nova(
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    sc CHAR(512),
+    nc CHAR(512)
+);
+success!
+success!
+success!
+success!

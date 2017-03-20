@@ -1,5 +1,5 @@
 SC = db.define_table('sigla_cidade',
-	Field('sigla'),
+	Field('sigla', length=2),
 	format = '%(sigla)s'
 	)
 
@@ -16,3 +16,8 @@ SCNC = db.define_table('nome_sigla_cidade',
 
 
 
+NOVA = db.define_table('nova',
+	Field('sc'),
+	Field('nc'),
+	format='%(novatab)s'
+	)
