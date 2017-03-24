@@ -86,3 +86,22 @@ success!
 success!
 success!
 success!
+timestamp: 2017-03-23T23:07:57.572679
+ALTER TABLE nova ADD usuario CHAR(512);
+success!
+success!
+success!
+timestamp: 2017-03-23T23:48:29.331319
+ALTER TABLE auth_user ADD username CHAR(128);
+success!
+timestamp: 2017-03-24T01:04:34.570667
+ALTER TABLE nova ADD modified_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ;
+timestamp: 2017-03-24T01:04:35.069429
+ALTER TABLE nova ADD is_active CHAR(1);
+timestamp: 2017-03-24T01:04:35.327058
+ALTER TABLE nova ADD created_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  ;
+timestamp: 2017-03-24T01:04:35.714978
+ALTER TABLE nova ADD created_on TIMESTAMP;
+timestamp: 2017-03-24T01:04:36.061081
+ALTER TABLE nova ADD modified_on TIMESTAMP;
+success!

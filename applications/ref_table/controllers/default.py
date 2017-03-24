@@ -11,27 +11,42 @@
 # gato    =   db.gatos.insert(nome=”Sr.   Pelinhos”,  raca=”Sphynx”)
 # rows = db(query).select()
 # >>> rows_list = rows.as_list()
-def indexx():
+def index():
     # siglas = db(SC).select()
     # lista = [sig.sigla for sig in siglas]
     # lista = [sig.sigla for sig in db(SC).select()]
-
+    if auth.is_logged_in():
+        print auth.user
+        print auth.user['username']
+        print auth.user['first_name']
+    else:
+        # print auth.user['first_name']
+        print "Usuário não logou"
     dados = db(NOVA.nc=='RJ').select()
-    form3=''
-    # form3 = SQLFORM.factory(
+    # print dados.xml()
+    form=''
+    form3 = SQLFORM.factory(
     # #     Field('sig', requires = IS_IN_DB(db, 'sigla_cidade.id', '%(sigla)s')),
-    #     Field('sig', requires = IS_IN_SET([sig.sigla for sig in db(SC).select(SC.sigla)])),
-    #     Field('nom', requires = IS_IN_SET([nom.nome for nom in db(NC).select(NC.nome)])))
+        Field('sig', requires = IS_IN_SET([sig.sigla for sig in db(SC).select(SC.sigla)])),
+        Field('nom', requires = IS_IN_SET([nom.nome for nom in db(NC).select(NC.nome)])))
     #     Field('nom', requires = IS_IN_DB(db, 'nome_cidade.id', '%(nome)s')))
-    form = SQLFORM(SCNC)
+    # form = SQLFORM(SCNC)
+    # if form.process().accepted:
+    #     print request.vars.nome_cid
+    #     busca_nome = db(NC.id == request.vars.nome_cid).select(NC.nome)
+        # print busca_nome
+        # print busca_nome['nome']
+
     # form2 = SQLFORM.factory(Field('campo', requires=IS_IN_SET(NC.fields)))
 
-    if form.process().accepted:
-        response.flash = 'Salvo'
+    if form3.process().accepted:
+    #     response.flash = 'Salvo'
         # print 'request.vars.sig', request.vars.sig, request.vars.nom
         # SCNC.insert(nome_cid=request.vars.sig, sigla_cid=request.vars.nom)
-        # NOVA.insert(nc=request.vars.nom, sc=request.vars.sig)
-    else:
+        # print auth.user['username']
+        # us = auth.user['username']
+        NOVA.insert(nc=request.vars.nom, sc=request.vars.sig)#, usuario=us)
+    elif form3.errors:
         response.flash = 'ERRO'
 
     # filtro = SQLFORM.factory(Field('filter', requires = IS_IN_SET([nom.nome for nom in db(NC).select(NC.nome)])))
@@ -44,7 +59,7 @@ def indexx():
     cids=''
     filtra_campo = SQLFORM.factory(Field('field_filter', requires = IS_IN_SET(NOVA.fields)))
     if filtra_campo.process().accepted:
-        # a = 'NOVA.%s'%request.vars.field_filter
+        print request.vars.field_filter
         # a = NOVA.
 
         # ===============>   TENTAR FAZER COM NOVA.fields==request.vars.field_filter   <==============================
@@ -62,6 +77,25 @@ def indexx():
 
 # def teste():
 #     return dict(message="BLAH")
+
+def checkon():
+    form = SQLFORM.factory(Field('abrir_chamado', notnull=False, widget=SQLFORM.widgets.checkboxes.widget, 
+                                    requires = IS_EMPTY_OR(IS_IN_SET(['Abrir Chamado']))))
+    if form.process().accepted:
+        print request.vars.abrir_chamado
+    else:
+        print "ERRO"
+    # dados = db(NOVA.nc=='RJ').select()
+    # a=dados.xml()
+
+    return dict(form=form, a=a)
+
+def banco():
+    if auth.is_logged_in():
+        a = db(NOVA.usuario==auth.user.username).select()
+    else:
+        a = "Você precisa estar logado"
+    return a
 
 def user():
     """

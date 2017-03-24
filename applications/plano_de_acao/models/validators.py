@@ -8,4 +8,7 @@ DEP.setor.requires = IS_NOT_EMPTY()
 
 ATEND.status.requires = IS_IN_DB(db,db.status_atend.id, '%(status)s', zero = 'Status')
 
+# ATEND.widget=SQLFORM.widgets.checkboxes.widget, requires = IS_EMPTY_OR(IS_IN_SET(['Abrir Chamado'])
+
+
 #IS_UPPER()

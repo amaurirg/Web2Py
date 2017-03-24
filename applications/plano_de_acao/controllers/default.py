@@ -66,6 +66,7 @@ def ver_concluido():
 
 # @auth.requires_login()
 def atendimentos():
+    print auth.user['username']
     atendimentos = db(ATEND).select(orderby=db.atendimentos.created_on)
     em_atendimento = db(db.status_atend.status!='CONCLUÍDO').select(join=db.atendimentos.on(
         db.status_atend.id == db.atendimentos.status), orderby=db.atendimentos.created_on)
@@ -91,7 +92,15 @@ def atendimentos():
     print dados
     # return dados
     # print dados
-    return dict(atendimentos=atendimentos, atend_conc=atend_conc, em_atendimento=em_atendimento, dados=dados)
+
+    form_novo = SQLFORM(ATEND, submit_button="Salvar")
+    if form_novo.process().accepted:
+        redirect(URL('atendimentos'))
+    elif form_novo.errors:
+        response.flash = "ERRO no form"
+
+    return dict(atendimentos=atendimentos, atend_conc=atend_conc, em_atendimento=em_atendimento, 
+                dados=dados, form_novo=form_novo)
                 # cont_em_atendimento=cont_em_atendimento, cont_aguardando=cont_aguardando, 
                 # cont_entrar_em_contato=cont_entrar_em_contato, cont_concluido=cont_concluido)
 

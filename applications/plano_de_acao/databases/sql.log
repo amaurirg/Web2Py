@@ -123,3 +123,10 @@ CREATE TABLE atendimentos(
     modified_by INTEGER REFERENCES auth_user (id) ON DELETE CASCADE  
 );
 success!
+timestamp: 2017-03-22T21:34:45.696489
+ALTER TABLE atendimentos ADD abrir_chamado CHAR(512);
+success!
+timestamp: 2017-03-22T21:50:53.275777
+ALTER TABLE atendimentos ADD telefone CHAR(512);
+success!
+success!

@@ -34,9 +34,12 @@ ATEND = db.define_table('atendimentos',
 	# Field('data_atend', 'date', notnull=True, default=datetime.date.today(), label="Data"),
 	Field('cliente', notnull=True, label="Cliente"),
 	Field('contato', notnull=True, label="Contato"),
-	Field('detalhes', notnull=True, label="Detalhes do Atendimento"),
+	Field('telefone', notnull=False, default="Não informado", label="Telefone"),
+	Field('detalhes', 'text', notnull=True, label="Detalhes do Atendimento"),
 	Field('status', 'reference status_atend', requires=IS_IN_DB(db,db.status_atend.id, '%(status)s'),
 		notnull=False, label="Status"),
+	Field('abrir_chamado', notnull=False, widget=SQLFORM.widgets.checkboxes.widget, 
+                                    requires = IS_IN_SET(['SIM', 'NÃO']), default='NÃO'),
 	auth.signature,
 	format = '%(cliente)s'
 	)

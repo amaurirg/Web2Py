@@ -79,17 +79,23 @@
 								<div class="panel-heading">
 									 <div class="row row-link panel-title collapsed" data-toggle="collapse" data-parent="#panel-0" href="{{='#panel-element-%s'%i}}">
 										 <div class="col-lg-12">
-											<div class="col-lg-3">
+											<div class="col-lg-2">
 												<h6>{{ =atendimento.atendimentos.created_on }}</h6>
 											</div>
-											<div class="col-lg-3">
+											<div class="col-lg-2">
 											 	<h6>{{ =atendimento.atendimentos.cliente }}</h6>
 											</div>
-											<div class="col-lg-3">
+											<div class="col-lg-2">
 											 	<h6>{{ =atendimento.atendimentos.contato }}</h6>
 											</div>
-											<div class="col-lg-3">
+											<div class="col-lg-2">
+											 	<h6>{{ =atendimento.atendimentos.telefone }}</h6>
+											</div>
+											<div class="col-lg-2">
 											 	<h6>{{ =atendimento.status_atend.status }}</h6>
+											</div>
+											<div class="col-lg-2">
+											 	<h6>{{ =atendimento.atendimentos.abrir_chamado }}</h6>
 											</div>
 										 </div>
 									 </div>
@@ -138,9 +144,9 @@
 					</div>
 
 					<div class="tab-pane" id="panel-novo">
-						<p>
-							Incluir form para novo.
-						</p>
+						<div class="col-lg-4">
+							{{ =form_novo }}
+						</div>
 					</div>
 				</div>
 			</div>
