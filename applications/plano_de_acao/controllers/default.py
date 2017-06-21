@@ -66,7 +66,8 @@ def ver_concluido():
 
 # @auth.requires_login()
 def atendimentos():
-    print auth.user['username']
+    if auth.is_logged_in():
+        print auth.user['username']
     atendimentos = db(ATEND).select(orderby=db.atendimentos.created_on)
     em_atendimento = db(db.status_atend.status!='CONCLUÍDO').select(join=db.atendimentos.on(
         db.status_atend.id == db.atendimentos.status), orderby=db.atendimentos.created_on)
@@ -88,6 +89,7 @@ def atendimentos():
         ATEND.status, count, join=db.atendimentos.on(
         db.status_atend.id == db.atendimentos.status), groupby=(ATEND.status))
     lista = dados.as_list()
+    print lista
     print lista[0]['atendimentos']['status']
     print dados
     # return dados

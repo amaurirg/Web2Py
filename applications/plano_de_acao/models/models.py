@@ -16,7 +16,7 @@ PLANO = db.define_table('plano',
 	Field('descricao', 'text', notnull=True, label="Descrição"),
 	Field('plano', 'text', notnull=False, label="Plano"),
 	Field('acao', 'text', notnull=False, label="Ação"),
-	Field('prazo', 'date', notnull=True, default=datetime.date.today(), label="Prazo"),
+	Field('prazo', 'date', notnull=True, default=request.now, label="Prazo"),#datetime.date.today()
 	Field('concluido', label='Concluído', widget=SQLFORM.widgets.radio.widget, 
            requires = IS_IN_SET(['NÃO', 'SIM']), default='NÃO'),
 	auth.signature,
